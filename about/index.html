@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Who we are — Swiss Plasma Polishing</title>
+  <meta name="description" content="Swiss Plasma Polishing is a Swiss deep-tech company bringing patented, water-based plasma polishing to medical, semiconductor, food and industrial customers.">
+
+  <!-- hreflang ready for phase two (DE, FR). English only in phase one. -->
+  <link rel="canonical" href="https://www.plasmapolishing.ch/about/">
+
+  <!--
+    Fonts match the Figma: Switzer (headings), Inter (body/labels/eyebrows),
+    IBM Plex Mono (a few uppercase labels). TODO: self-host all three under
+    /assets/fonts/ before launch (Swiss / GDPR: avoids third-party requests).
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@500,600,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/pages/about.css">
+  <link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <!-- ============================== Header ============================== -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-header__logo" href="../index.html" aria-label="Swiss Plasma Polishing home">
+        <img src="../assets/img/logo.svg" alt="Swiss Plasma Polishing" width="120" height="67">
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <div class="site-nav__links">
+          <a href="../index.html#technology">Technology</a>
+          <a href="../index.html#benefits">Benefits</a>
+          <a href="../index.html#applications">Applications</a>
+          <a href="../index.html#services">Polishing services</a>
+          <a href="../faq/">FAQ</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+        <a class="btn btn--primary" href="../index.html#contact">Request Demo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================== Hero ============================== -->
+    <section class="about-hero" aria-labelledby="about-hero-title">
+      <div class="container">
+        <div class="about-hero__inner">
+          <p class="mono-label about-hero__eyebrow">Who we are</p>
+          <h1 class="display about-hero__title" id="about-hero-title">
+            Precision finishing, made in Switzerland
+          </h1>
+          <p class="lead about-hero__subhead">
+            We are a Swiss deep-tech company bringing patented plasma polishing to industries
+            that demand a flawless, repeatable surface finish.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== Our story ============================== -->
+    <section class="about-story section" aria-labelledby="about-story-title">
+      <div class="container">
+        <div class="about-story__row">
+          <div class="about-story__col">
+            <p class="eyebrow">Our story</p>
+            <h2 class="h2" id="about-story-title">Born from Swiss research</h2>
+            <p class="about-story__body">
+              Swiss Plasma Polishing grew out of years of applied research into cleaner, faster
+              metal finishing. We set out to replace harsh, multi-step chemical polishing with a
+              single water-based plasma process that is safe for people and the environment. Today
+              we finish parts for medical, semiconductor, food and industrial customers across Europe.
+            </p>
+          </div>
+          <div class="about-story__media img-placeholder">
+            <span class="img-placeholder__label">IMG/team (replace)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== Why customers choose us ============================== -->
+    <section class="about-values section" aria-labelledby="about-values-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">What sets us apart</p>
+          <h2 class="h2" id="about-values-title">Why customers choose us</h2>
+          <p class="intro">Three principles guide everything we finish.</p>
+        </div>
+
+        <div class="about-values__grid">
+          <article class="app-cell about-card">
+            <span class="about-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/>
+              </svg>
+            </span>
+            <h3 class="about-card__title">Swiss precision</h3>
+            <p class="about-card__body">
+              Tight tolerances and repeatable results, validated on your material and geometry
+              before we run production.
+            </p>
+          </article>
+
+          <article class="app-cell about-card">
+            <span class="about-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3 4 6v5c0 5 3.4 8.3 8 10 4.6-1.7 8-5 8-10V6l-8-3Z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </span>
+            <h3 class="about-card__title">Patented and proven</h3>
+            <p class="about-card__body">
+              A patented plasma process backed by applied research, trusted by medical,
+              semiconductor and industrial customers.
+            </p>
+          </article>
+
+          <article class="app-cell about-card">
+            <span class="about-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2c1.5 3.5 5 5 5 9a5 5 0 0 1-10 0c0-4 3.5-5.5 5-9Z"/>
+                <path d="M10.5 14.5c0 1 .7 1.8 1.5 1.8"/>
+              </svg>
+            </span>
+            <h3 class="about-card__title">Clean by design</h3>
+            <p class="about-card__body">
+              Water-based, non-toxic chemistry that is safe for operators and the environment,
+              with no harsh acids.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CTA band ============================== -->
+    <section class="about-cta section" aria-labelledby="about-cta-title">
+      <div class="container">
+        <div class="about-cta__inner">
+          <h2 class="h2 about-cta__title" id="about-cta-title">Send us a part, see the finish</h2>
+          <p class="about-cta__intro">
+            Tell us about your part and target surface. We assess it and get back to you.
+          </p>
+          <a class="btn btn--primary" href="../index.html#contact">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== Partners ============================== -->
+    <section class="partners section" id="partners" aria-label="Supported by">
+      <div class="container">
+        <p class="partners__label mono-label">Supported by</p>
+        <div class="partners__logos">
+          <img class="partner-logo" src="../assets/img/partner-bfh.png" alt="Berner Fachhochschule (BFH)" height="100">
+          <img class="partner-logo" src="../assets/img/partner-be-advanced.png" alt="be-advanced" height="27">
+          <img class="partner-logo" src="../assets/img/partner-bridge.png" alt="Bridge" height="42">
+          <img class="partner-logo" src="../assets/img/partner-gebert-ruf.png" alt="Gebert Rüf Stiftung" height="56">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================== Footer ============================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <hr>
+      <div class="site-footer__row">
+        <a class="site-footer__logo" href="../index.html" aria-label="Swiss Plasma Polishing home">
+          <img src="../assets/img/logo.svg" alt="Swiss Plasma Polishing" width="120" height="67">
+        </a>
+        <nav class="site-footer__nav" aria-label="Footer">
+          <a href="../index.html#technology">Technology</a>
+          <a href="../index.html#benefits">Benefits</a>
+          <a href="../index.html#applications">Applications</a>
+          <a href="../index.html#services">Polishing services</a>
+          <a href="../index.html#contact">Contact</a>
+          <a href="../faq/">FAQ</a>
+        </nav>
+      </div>
+      <hr>
+      <div class="site-footer__bottom">
+        <p>© 2026 Swiss Plasma Polishing</p>
+        <div class="site-footer__legal">
+          <a href="../impressum/">Impressum</a>
+          <a href="../privacy/">Privacy Policy</a>
+          <a href="../terms/">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================== Cookie banner (essential-only) ============================== -->
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie notice" hidden>
+    <p class="cookie-banner__text">
+      We use essential cookies only to make this site work. No tracking by default.
+    </p>
+    <div class="cookie-banner__actions">
+      <button class="btn btn--primary" type="button" data-cookie="accept">Got it</button>
+    </div>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+/* SPP design tokens. Generated from STYLE_GUIDE.md. */
+
+:root {
+  /* Colors — text */
+  --text-primary: #161b21;
+  --text-secondary: #5e6c7a;
+  --text-muted: #9aa6b1;
+  --text-on-dark: #ffffff;
+
+  /* Colors — accent (steel-blue) */
+  --accent: #4c748c;
+  --accent-hover: #3f6478;
+  --accent-active: #365668;
+  --accent-disabled: #b3c2cc;
+  --accent-subtle: #edf2f5;
+  --accent-light: #d3e2ee;
+  --accent-soft: #eaf1f7;
+
+  /* Colors — backgrounds */
+  --bg-page: #ffffff;
+  --bg-surface: #eaf1f7;
+  --bg-emphasis: #d3e2ee;
+
+  /* Colors — backgrounds (extra surface tint used in Figma) */
+  --bg-surface-2: #e7edf1; /* partners, media placeholders */
+
+  /* Colors — borders */
+  --border-subtle: #eef2f5;
+  --border: #dde4e9;
+  --border-strong: #d2dbe1;
+  --border-header: #e3e9ed; /* Figma header/footer rule */
+  --border-card: #e1e9f0;   /* app cards, hero play button */
+  --border-check: #b3bfc8;  /* checkbox */
+  --placeholder: #9aa4ae;   /* input placeholder */
+
+  /* Colors — status (reserved) */
+  --success: #3d7350;
+  --warning: #cc8a1f;
+  --danger: #b04438;
+
+  /* Type families (match Figma: Switzer for display/headings, Inter for body) */
+  --font-display: "Switzer", "Manrope", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  /* Type scale (px values; convert to rem in component CSS if preferred) */
+  --type-display: 60px;
+  --type-h1: 50px;
+  --type-h2: 52px;
+  --type-h3: 32px;
+  --type-h4: 26px;
+  --type-h5: 21px;
+  --type-h6: 18px;
+  --type-body-lg: 19px;
+  --type-body: 16px;
+  --type-body-sm: 15px;
+  --type-mono-sm: 12px;
+  --type-mono-xs: 11px;
+  --type-mono-num: 30px;
+  --type-ui: 14px;
+  --type-button: 16px;
+
+  /* Spacing scale, multiples of 4 */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-9: 40px;
+  --space-10: 48px;
+  --space-12: 56px;
+  --space-14: 64px;
+  --space-16: 72px;
+  --space-18: 80px;
+  --space-20: 88px;
+  --space-24: 104px;
+  --space-26: 112px;
+  --space-28: 120px;
+
+  /* Radius */
+  --radius-sm: 2px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 10px;
+  --radius-2xl: 12px;
+
+  /* Shadows */
+  --shadow-sm: 0 6px 18px -4px rgba(22, 27, 33, 0.08);
+  --shadow-md: 0 8px 22px -6px rgba(22, 27, 33, 0.08);
+  --shadow-lg: 0 18px 40px -12px rgba(22, 27, 33, 0.10);
+  --shadow-xl: 0 24px 60px -16px rgba(22, 27, 33, 0.12);
+  --shadow-button: 0 2px 3px rgba(22, 27, 33, 0.06), 0 1px 1px rgba(22, 27, 33, 0.08);
+
+  /* Container */
+  --container-max: 1200px;
+}
+
+/* Container helper.
+   content-box so max-width applies to the CONTENT (1200px), with the horizontal
+   padding sitting OUTSIDE it. At a 1440 viewport this yields exactly 1200px of
+   content with 120px gutters, matching the Figma frame. */
+.container {
+  box-sizing: content-box;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, var(--space-28));
+}
+
+/* Section base spacing */
+.section {
+  padding-block: var(--space-26);
+}
+@media (max-width: 1024px) {
+  .section { padding-block: var(--space-14); }
+}
+@media (max-width: 768px) {
+  .section { padding-block: var(--space-10); }
+}
+
+/* Focus ring */
+:where(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-md);
+}

@@ -1,0 +1,360 @@
+/* Case Study detail page. Layout values mirror the Figma
+   "SPP — Case Study (Dental)" frame (node 593:2). Only styles not covered by
+   the shared classes live here. Prefixed "cs-" to avoid collisions. */
+
+/* ============================================================
+   Breadcrumb
+   ============================================================ */
+.cs-breadcrumb {
+  padding-top: var(--space-7); /* 28px, sits just under the header */
+}
+.cs-breadcrumb__row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3); /* 12px */
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.2;
+}
+.cs-breadcrumb__link {
+  color: var(--accent);
+  transition: color 150ms ease;
+}
+.cs-breadcrumb__link:hover {
+  color: var(--accent-hover);
+}
+.cs-breadcrumb__sep {
+  color: var(--text-muted);
+}
+.cs-breadcrumb__current {
+  color: var(--text-secondary);
+}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.cs-hero {
+  padding-top: var(--space-10); /* 48px */
+  padding-bottom: var(--space-14); /* 64px */
+}
+.cs-hero__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5); /* 20px */
+  align-items: flex-start;
+}
+/* Mono eyebrow chip: "CASE STUDY · MEDICAL · COBALT-CHROME" */
+.cs-hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.2;
+}
+.cs-hero__eyebrow-item {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.cs-hero__eyebrow-item--accent {
+  color: var(--accent);
+}
+.cs-hero__eyebrow-dot {
+  color: var(--text-muted);
+}
+.cs-hero__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 54px;
+  line-height: 1.1;
+  letter-spacing: -1.4px;
+  color: var(--text-primary);
+  max-width: 820px;
+}
+.cs-hero__intro {
+  font-family: var(--font-body);
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 820px;
+}
+
+/* ============================================================
+   Hero media (full-width placeholder)
+   ============================================================ */
+.cs-hero-media {
+  padding-bottom: var(--space-18); /* 80px */
+}
+.cs-hero-media__img {
+  height: 560px;
+  width: 100%;
+  border-radius: var(--radius-2xl);
+}
+
+/* ============================================================
+   Overview (copy + specs sidebar)
+   ============================================================ */
+.cs-overview {
+  padding-block: var(--space-18); /* 80px */
+}
+.cs-overview__row {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: var(--space-18); /* 80px */
+  align-items: start;
+}
+.cs-overview__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: flex-start;
+}
+.cs-overview__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+}
+.cs-overview__body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Specs sidebar card */
+.cs-specs {
+  background: var(--bg-surface);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-7); /* 28px */
+  display: flex;
+  flex-direction: column;
+}
+.cs-specs__list {
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--space-2); /* 8px */
+}
+.cs-spec {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1); /* 4px */
+  padding-block: var(--space-4); /* 16px */
+}
+.cs-spec + .cs-spec {
+  border-top: 1px solid var(--border);
+}
+.cs-spec__label {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.cs-spec__value {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+/* ============================================================
+   Story (three alternating blocks)
+   ============================================================ */
+.cs-story {
+  background: var(--bg-surface);
+}
+.cs-story__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16); /* 72px */
+}
+.cs-story-block {
+  display: grid;
+  grid-template-columns: 1fr 520px; /* text | media */
+  gap: var(--space-16); /* 72px */
+  align-items: center;
+}
+.cs-story-block--reverse {
+  grid-template-columns: 520px 1fr; /* media | text */
+}
+.cs-story-block--reverse .cs-story-block__media {
+  order: -1;
+}
+.cs-story-block__text {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+}
+.cs-story-block__top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--accent);
+}
+.cs-story-block__num {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+.cs-story-block__kicker {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.cs-story-block__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+}
+.cs-story-block__body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+.cs-story-block__media .img-placeholder {
+  height: 400px;
+  width: 100%;
+  border-radius: var(--radius-2xl);
+}
+
+/* ============================================================
+   Next case navigation
+   ============================================================ */
+.cs-nextcase {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.cs-nextcase__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  padding-block: var(--space-14); /* 64px */
+}
+.cs-nextcase__link {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Figma gap between kicker and title */
+}
+.cs-nextcase__link--next {
+  align-items: flex-end;
+  text-align: right;
+}
+.cs-nextcase__kicker {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.cs-nextcase__link--next .cs-nextcase__kicker {
+  color: var(--accent);
+}
+.cs-nextcase__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--text-primary);
+  transition: color 150ms ease;
+}
+.cs-nextcase__link:hover .cs-nextcase__title {
+  color: var(--accent);
+}
+
+/* ============================================================
+   CTA band
+   ============================================================ */
+.cs-cta {
+  background: var(--bg-page);
+  text-align: center;
+}
+.cs-cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-7); /* 28px */
+}
+.cs-cta__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: -0.8px;
+  color: var(--text-primary);
+  max-width: 820px;
+}
+.cs-cta__intro {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  max-width: 724px;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 1024px) {
+  .cs-hero__title {
+    font-size: clamp(34px, 7vw, 54px);
+    letter-spacing: -1px;
+  }
+  .cs-overview__row {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+  .cs-story-block,
+  .cs-story-block--reverse {
+    grid-template-columns: 1fr;
+    gap: var(--space-9);
+  }
+  .cs-story-block--reverse .cs-story-block__media {
+    order: 0;
+  }
+  .cs-hero-media__img {
+    height: clamp(280px, 42vw, 560px);
+  }
+}
+
+@media (max-width: 768px) {
+  .cs-nextcase__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-8);
+  }
+  .cs-nextcase__link--next {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .cs-cta__title {
+    font-size: clamp(28px, 8vw, 40px);
+  }
+  .cs-story-block__title {
+    font-size: 26px;
+  }
+  .cs-overview__title {
+    font-size: 28px;
+  }
+}

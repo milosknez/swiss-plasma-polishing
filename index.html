@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swiss Plasma Polishing — Best-in-class metal finishing, clean and patented</title>
+  <meta name="description" content="Patented water-based plasma polishing for metal parts. Environmentally friendly, non-toxic, single-step finishing for medical, automotive, watchmaking and 3D printed parts.">
+
+  <!-- hreflang ready for phase two (DE, FR). English only in phase one. -->
+  <link rel="canonical" href="https://www.plasmapolishing.ch/">
+
+  <!--
+    Fonts match the Figma: Switzer (headings), Inter (body/labels/eyebrows),
+    IBM Plex Mono (a few uppercase labels). TODO: self-host all three under
+    /assets/fonts/ before launch (Swiss / GDPR: avoids third-party requests).
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@500,600,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <!-- ============================== Header ============================== -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-header__logo" href="/" aria-label="Swiss Plasma Polishing home">
+        <img src="assets/img/logo.svg" alt="Swiss Plasma Polishing" width="120" height="67">
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <div class="site-nav__links">
+          <a href="#technology">Technology</a>
+          <a href="#benefits">Benefits</a>
+          <a href="#applications">Applications</a>
+          <a href="#services">Polishing services</a>
+          <a href="faq/">FAQ</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <a class="btn btn--primary" href="#contact">Request Demo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================== Hero ============================== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__inner">
+        <div class="hero__copy">
+          <div class="hero__copy-wrap">
+            <p class="eyebrow">Patented plasma polishing</p>
+            <h1 class="display hero__title" id="hero-title">
+              Best-in-class finishes, <span class="accent">clean</span> and patented
+            </h1>
+            <p class="lead hero__subhead">
+              The environmentally friendly and non-toxic solution. Save time, energy and money by
+              achieving lower roughness in less time.
+            </p>
+            <div class="hero__cta">
+              <a class="btn btn--primary" href="#contact">Request Demo</a>
+              <a class="btn-play" href="#technology" aria-label="Watch the plasma process">
+                <span class="btn-play__icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M3 2v10l8-5z"/></svg>
+                </span>
+                Watch the process
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="hero__media">
+          <img src="assets/img/hero.png" alt="A metal part being finished by the plasma polishing process" width="640" height="700">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== Technology ============================== -->
+    <section class="technology section" id="technology" aria-labelledby="tech-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">The technology</p>
+          <h2 class="h2" id="tech-title">A <span class="accent">revolutionary</span> way to finish metal</h2>
+          <p class="intro">
+            Plasma polishing has evolved into a revolutionary technology for achieving incredibly
+            smooth, high-gloss metal surfaces. For our customers, that means parts with a flawless,
+            best-in-class finish, quickly and cleanly. Here is how it works, and the value it brings
+            to your products.
+          </p>
+        </div>
+
+        <!-- How it works -->
+        <div class="tech-row">
+          <div class="tech-row__text">
+            <p class="eyebrow">The approach</p>
+            <h3 class="h3">A cleaner, smarter approach</h3>
+            <p>
+              Today, polishing requires multiple steps to achieve the desired surface roughness. It
+              involves manual polishing and electrochemical polishing, which uses harsh, toxic acids
+              that are harmful to people and the environment. Plasma polishing takes a much cleaner,
+              smarter approach.
+            </p>
+          </div>
+          <div class="tech-row__media">
+            <img class="tech-row__img" src="assets/img/beforeafter.png" alt="Before and after comparison of a plasma polished surface" width="520" height="400">
+          </div>
+        </div>
+
+        <!-- Method 1: Bath (text left, image right) -->
+        <div class="tech-row tech-row--reverse">
+          <div class="tech-row__media">
+            <img class="tech-row__img" src="assets/img/bath.png" alt="Parts finished by Plasma Electrolytic Polishing, before and after" width="520" height="400">
+          </div>
+          <div class="tech-row__text">
+            <p class="eyebrow">Bath process</p>
+            <h3 class="h3">Plasma Electrolytic Polishing</h3>
+            <p>
+              During Plasma Electrolytic Polishing, the metal part is submerged in an environmentally
+              friendly, water-based salt solution and connected to an electrical power source. This
+              creates a thin-layer plasma around the entire surface of the part. This plasma removes
+              all peaks and imperfections on the surface, resulting in a smooth, polished surface.
+            </p>
+          </div>
+        </div>
+
+        <!-- Method 2: Jet (image left, text right) -->
+        <div class="tech-row">
+          <div class="tech-row__text">
+            <p class="eyebrow">Jet process</p>
+            <h3 class="h3">Jet Plasma Polishing</h3>
+            <p>
+              Taking this a step further is Jet Plasma Polishing. Instead of submerging the part in a
+              bath, a specialised nozzle sprays a targeted stream, or jet, of the liquid solution
+              directly onto the specific area that needs finishing. The electrical current travels
+              right through this liquid stream, creating the polishing plasma exactly where the jet
+              touches the metal.
+            </p>
+          </div>
+          <div class="tech-row__media">
+            <img class="tech-row__img" src="assets/img/jet.png" alt="Jet Plasma Polishing finishing a targeted area of a metal part" width="520" height="400">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== Case Studies (Split Spotlight) ============================== -->
+    <section class="spotlight" id="case-studies" aria-labelledby="cases-title">
+      <div class="spotlight__image">
+        <img src="assets/img/case.png" alt="Featured case study: a metal part finished by plasma polishing" width="720" height="771">
+      </div>
+      <div class="spotlight__panel">
+        <div class="spotlight__head">
+          <p class="mono-label spotlight__eyebrow">Case studies</p>
+          <h2 class="h2" id="cases-title">What we have polished</h2>
+          <p class="spotlight__intro">
+            Real examples across medical, automotive, watchmaking and custom alloys.
+          </p>
+        </div>
+
+        <div class="case-list" role="list">
+          <div class="case-item" role="listitem" aria-expanded="true">
+            <div class="case-item__head">
+              <h3 class="case-item__title">Dental cobalt-chrome prosthesis</h3>
+              <span class="case-item__arrow" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+            <div class="case-item__body">
+              <p class="case-item__desc">
+                Cobalt-chrome dental prosthesis finished to a smooth, biocompatible surface, including
+                3D printed shapes.
+              </p>
+              <a class="link-arrow" href="case-studies/dental-cobalt-chrome-prosthesis.html">Read more <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+
+          <div class="case-item" role="listitem">
+            <div class="case-item__head">
+              <h3 class="case-item__title">Internal surface of a bent stainless tube</h3>
+              <span class="case-item__arrow" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+            <div class="case-item__body">
+              <p class="case-item__desc">
+                Clean, smooth inner walls on bent stainless tubes, reached in a single pass where tools
+                cannot.
+              </p>
+              <a class="link-arrow" href="case-studies/">Read more <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+
+          <div class="case-item" role="listitem">
+            <div class="case-item__head">
+              <h3 class="case-item__title">Weld joint on an automotive part</h3>
+              <span class="case-item__arrow" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+            <div class="case-item__body">
+              <p class="case-item__desc">
+                Selective jet polishing of a weld seam, cleaning the joint without touching the area
+                around it.
+              </p>
+              <a class="link-arrow" href="case-studies/">Read more <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+
+          <div class="case-item" role="listitem">
+            <div class="case-item__head">
+              <h3 class="case-item__title">Watch cases</h3>
+              <span class="case-item__arrow" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+            <div class="case-item__body">
+              <p class="case-item__desc">
+                Stainless and titanium cases brought to a bright, even finish, with edges and geometry
+                intact.
+              </p>
+              <a class="link-arrow" href="case-studies/">Read more <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+
+          <div class="case-item" role="listitem">
+            <div class="case-item__head">
+              <h3 class="case-item__title">Special electrolyte for a custom alloy</h3>
+              <span class="case-item__arrow" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+            <div class="case-item__body">
+              <p class="case-item__desc">
+                A custom electrolyte developed and validated to reach the target roughness on an unusual
+                alloy.
+              </p>
+              <a class="link-arrow" href="case-studies/">Read more <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== Applications ============================== -->
+    <section class="applications section" id="applications" aria-labelledby="apps-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Applications</p>
+          <h2 class="h2" id="apps-title">Where plasma polishing fits</h2>
+          <p class="intro">From large surfaces to inner contours, on conventional and 3D printed parts.</p>
+        </div>
+
+        <div class="apps-grid">
+          <article class="app-cell">
+            <span class="app-cell__num">01</span>
+            <h3 class="app-cell__title">Large surfaces</h3>
+            <p class="app-cell__body">With PEP-Jet we polish large areas that are not possible in electrochemical or plasma electrolytic baths.</p>
+          </article>
+          <article class="app-cell">
+            <span class="app-cell__num">02</span>
+            <h3 class="app-cell__title">Local polishing and geometry preservation</h3>
+            <p class="app-cell__body">The electrolyte jet polishes specific areas precisely, so geometries and corners stay sharp.</p>
+          </article>
+          <article class="app-cell">
+            <span class="app-cell__num">03</span>
+            <h3 class="app-cell__title">Inner contours and cavities</h3>
+            <p class="app-cell__body">With the jet and selective polishing we reach areas that mechanical methods and electropolishing cannot.</p>
+          </article>
+          <article class="app-cell">
+            <span class="app-cell__num">04</span>
+            <h3 class="app-cell__title">3D printed surfaces</h3>
+            <p class="app-cell__body">With PEP we polish rough printed surfaces directly to a fine finish, with no precleaning or preprocessing.</p>
+          </article>
+        </div>
+
+        <!--
+          Materials strip is hidden in the current Figma frame (layer "materials" is
+          hidden). Kept here, commented out, so it can be restored if the client
+          re-enables it. Copy and markup are ready.
+        -->
+        <!--
+        <div class="materials">
+          <p class="mono-label">Materials we polish</p>
+          <div class="materials__pills">
+            <span class="pill">Stainless steel</span>
+            <span class="pill">Titanium</span>
+            <span class="pill">Cobalt-chrome</span>
+            <span class="pill">Copper alloys</span>
+            <span class="pill">Brass</span>
+            <span class="pill">3D printed parts</span>
+          </div>
+        </div>
+        -->
+      </div>
+    </section>
+
+    <!-- ============================== Contact ============================== -->
+    <section class="contact section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Get in touch</p>
+          <h2 class="h2" id="contact-title">Send us a part, see the finish</h2>
+          <p class="intro">Tell us about your part and target surface. We assess it and get back to you.</p>
+        </div>
+
+        <div class="contact__row">
+          <!-- Left: details + map -->
+          <div class="contact__left">
+            <div class="contact__details">
+              <div class="contact-detail">
+                <span class="contact-detail__icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                </span>
+                <span>
+                  <span class="contact-detail__label">Email us</span><br>
+                  <a class="contact-detail__value" href="mailto:info@plasmapolishing.ch">info@plasmapolishing.ch</a>
+                </span>
+              </div>
+              <div class="contact-detail">
+                <span class="contact-detail__icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                </span>
+                <span>
+                  <span class="contact-detail__label">Visit office</span><br>
+                  <span class="contact-detail__value">Quellgasse 21, 2502 Biel/Bienne</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="contact__map">
+              <iframe
+                title="SPP office location, Quellgasse 21, Biel/Bienne"
+                src="https://www.google.com/maps?q=Quellgasse%2021,%202502%20Biel/Bienne,%20Switzerland&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <span class="contact__map-chip">Swiss Plasma Polishing</span>
+            </div>
+          </div>
+
+          <!-- Right: form card -->
+          <div class="form-card" data-state="default">
+            <div class="form-toggle" role="tablist" aria-label="Enquiry type">
+              <button class="form-toggle__btn" type="button" role="tab" aria-selected="false" data-tab="quote" aria-controls="form-quote">Request a quote</button>
+              <button class="form-toggle__btn" type="button" role="tab" aria-selected="true" data-tab="general" aria-controls="form-general">General enquiry</button>
+            </div>
+
+            <!-- Tab 1: Request a quote (detailed) -->
+            <form id="form-quote" class="form-body" novalidate hidden>
+              <p class="form-section-label">Your workpiece</p>
+
+              <div class="field">
+                <label class="field__label" for="q-workpiece">Workpiece *</label>
+                <input class="field__input" type="text" id="q-workpiece" name="workpiece" placeholder="e.g. housing" required>
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <label class="field__label" for="q-dimensions">Dimensions *</label>
+                  <input class="field__input" type="text" id="q-dimensions" name="dimensions" placeholder="e.g. 120 × 150 × 300" required>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="q-material">Material *</label>
+                  <input class="field__input" type="text" id="q-material" name="material" placeholder="e.g. 1.4404" required>
+                </div>
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <label class="field__label" for="q-result">Polishing result *</label>
+                  <input class="field__input" type="text" id="q-result" name="result" placeholder="e.g. internal polishing to Ra 0.2µm" required>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="q-drawing">Drawing</label>
+                  <label class="upload-field" for="q-drawing">
+                    <input class="upload-field__input" type="file" id="q-drawing" name="drawing">
+                    <svg class="upload-field__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M7 8l5-5 5 5M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></svg>
+                    <span class="upload-field__text" data-default="Upload drawing">Upload drawing</span>
+                  </label>
+                </div>
+              </div>
+
+              <p class="form-section-label">Your company</p>
+
+              <div class="field-row">
+                <div class="field">
+                  <label class="field__label" for="q-name">Name *</label>
+                  <input class="field__input" type="text" id="q-name" name="name" placeholder="First name, last name" required>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="q-company">Company *</label>
+                  <input class="field__input" type="text" id="q-company" name="company" placeholder="Company name" required>
+                </div>
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <label class="field__label" for="q-email">E-mail *</label>
+                  <input class="field__input" type="email" id="q-email" name="email" placeholder="E-mail address" required>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="q-phone">Phone number *</label>
+                  <input class="field__input" type="tel" id="q-phone" name="phone" placeholder="Phone number" required>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="q-message">Your message *</label>
+                <textarea class="field__textarea field__textarea--tall" id="q-message" name="message" placeholder="Tell us about your part and requirements" required></textarea>
+              </div>
+
+              <button class="btn btn--primary" type="submit">Request a quote</button>
+            </form>
+
+            <!-- Tab 2: General enquiry (simple) -->
+            <form id="form-general" class="form-body" novalidate>
+              <div class="field">
+                <label class="field__label" for="g-name">Name</label>
+                <input class="field__input" type="text" id="g-name" name="name" placeholder="First name, last name" required>
+              </div>
+              <div class="field">
+                <label class="field__label" for="g-email">Email</label>
+                <input class="field__input" type="email" id="g-email" name="email" placeholder="E-mail address" required>
+              </div>
+              <div class="field">
+                <label class="field__label" for="g-message">Message</label>
+                <textarea class="field__textarea" id="g-message" name="message" placeholder="Tell us about your part and requirements" required></textarea>
+              </div>
+
+              <label class="check">
+                <input type="checkbox" name="newsletter">
+                Subscribe to the newsletter
+              </label>
+              <label class="check">
+                <input type="checkbox" name="privacy" required>
+                I have read the <a href="privacy/">Privacy Policy</a>
+              </label>
+
+              <button class="btn btn--primary btn--block" type="submit">Send enquiry</button>
+            </form>
+
+            <div class="form-card__success" role="status" aria-live="polite">
+              <h3 class="h4">Thank you</h3>
+              <p class="body-sm" style="color:var(--text-secondary)">
+                We received your message and will get back to you shortly.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== Partners ============================== -->
+    <section class="partners section" id="partners" aria-label="Supported by">
+      <div class="container">
+        <p class="partners__label mono-label">Supported by</p>
+        <div class="partners__logos">
+          <img class="partner-logo" src="assets/img/partner-bfh.png" alt="Berner Fachhochschule (BFH)" height="100">
+          <img class="partner-logo" src="assets/img/partner-be-advanced.png" alt="be-advanced" height="27">
+          <img class="partner-logo" src="assets/img/partner-bridge.png" alt="Bridge" height="42">
+          <img class="partner-logo" src="assets/img/partner-gebert-ruf.png" alt="Gebert Rüf Stiftung" height="56">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================== Footer ============================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <hr>
+      <div class="site-footer__row">
+        <a class="site-footer__logo" href="/" aria-label="Swiss Plasma Polishing home">
+          <img src="assets/img/logo.svg" alt="Swiss Plasma Polishing" width="120" height="67">
+        </a>
+        <nav class="site-footer__nav" aria-label="Footer">
+          <a href="#technology">Technology</a>
+          <a href="#benefits">Benefits</a>
+          <a href="#applications">Applications</a>
+          <a href="#services">Polishing services</a>
+          <a href="#contact">Contact</a>
+          <a href="faq/">FAQ</a>
+        </nav>
+      </div>
+      <hr>
+      <div class="site-footer__bottom">
+        <p>© 2026 Swiss Plasma Polishing</p>
+        <div class="site-footer__legal">
+          <a href="impressum/">Impressum</a>
+          <a href="privacy/">Privacy Policy</a>
+          <a href="terms/">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================== Cookie banner (essential-only) ============================== -->
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie notice" hidden>
+    <p class="cookie-banner__text">
+      We use essential cookies only to make this site work. No tracking by default.
+    </p>
+    <div class="cookie-banner__actions">
+      <button class="btn btn--primary" type="button" data-cookie="accept">Got it</button>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

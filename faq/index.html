@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - Swiss Plasma Polishing</title>
+  <meta name="description" content="Answers to common questions about plasma polishing: which metals we finish, how it differs from electropolishing, surface finish, internal surfaces, prototypes and how to get started.">
+
+  <link rel="canonical" href="https://www.plasmapolishing.ch/faq/">
+
+  <!--
+    Fonts match the Figma: Switzer (headings), Inter (body/labels/eyebrows),
+    IBM Plex Mono (a few uppercase labels). TODO: self-host all three under
+    /assets/fonts/ before launch (Swiss / GDPR: avoids third-party requests).
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@500,600,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/pages/faq.css">
+  <link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <!-- ============================== Header ============================== -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-header__logo" href="../index.html" aria-label="Swiss Plasma Polishing home">
+        <img src="../assets/img/logo.svg" alt="Swiss Plasma Polishing" width="120" height="67">
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <div class="site-nav__links">
+          <a href="../index.html#technology">Technology</a>
+          <a href="../index.html#benefits">Benefits</a>
+          <a href="../index.html#applications">Applications</a>
+          <a href="../index.html#services">Polishing services</a>
+          <a href="../faq/">FAQ</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+        <a class="btn btn--primary" href="../index.html#contact">Request Demo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================== Intro / mini hero ============================== -->
+    <section class="faq-intro" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">FAQ</p>
+          <h1 class="h2" id="faq-title">Frequently asked questions</h1>
+          <p class="intro">Everything you need to know about plasma polishing and working with us.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== FAQ accordion ============================== -->
+    <section class="faq-section" aria-label="Questions and answers">
+      <div class="container">
+        <div class="faq-list">
+
+          <details class="faq-item" open>
+            <summary class="faq-item__q">
+              What is plasma polishing?
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <div class="faq-item__body">
+              <p>Plasma polishing, or Plasma Electrolytic Polishing, smooths and brightens metal by submerging the part in a water-based salt solution and running a current through it. This forms a thin plasma layer that removes peaks and imperfections across the surface. It is a clean, single-step process with no harsh acids.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__q">
+              Which metals can you polish?
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <div class="faq-item__body">
+              <p>Stainless steel, titanium, cobalt-chrome, copper alloys, brass and 3D printed metal parts. If you are not sure about your alloy, send us a sample and we will test it before any production run.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__q">
+              How is it different from electropolishing?
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <div class="faq-item__body">
+              <p>Traditional electropolishing relies on aggressive, toxic acids. Plasma polishing uses an environmentally friendly water-based solution, is safer for operators, and reaches geometries that acids and mechanical methods often cannot.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__q">
+              Will it change the dimensions of my part?
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <div class="faq-item__body">
+              <p>Material removal is very small and controlled. Geometry and sharp corners are preserved, especially with the jet process, which targets only the areas that need finishing.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__q">
+              What surface finish can I expect?
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <div class="faq-item__body">
+              <p>Results depend on the starting roughness and the material, but plasma polishing reliably produces a smooth, bright, low-Ra finish. We confirm the target Ra on your part before production.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__q">
+              Can you polish internal surfaces and tubes?
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <div class="faq-item__body">
+              <p>Yes. Internal tube polishing and selective jet polishing reach inner contours, cavities and bends that are difficult or impossible to finish with other methods.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__q">
+              Do you handle prototypes and small batches?
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <div class="faq-item__body">
+              <p>Yes. We support single parts, prototypes and batch production, and we are a strong fit for 3D printed dental and medical components.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__q">
+              How do I get started?
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <div class="faq-item__body">
+              <p>Send us your part and target surface through the contact form. We assess feasibility, run a test where needed, and get back to you with a clear recommendation.</p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CTA band ============================== -->
+    <section class="faq-cta" aria-labelledby="faq-cta-title">
+      <div class="container">
+        <div class="faq-cta__inner">
+          <h2 class="h2" id="faq-cta-title">Still have questions?</h2>
+          <p class="faq-cta__intro">Send us your part and target finish. We will assess it and get back to you.</p>
+          <a class="btn btn--primary" href="../index.html#contact">Contact us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================== Footer ============================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <hr>
+      <div class="site-footer__row">
+        <a class="site-footer__logo" href="../index.html" aria-label="Swiss Plasma Polishing home">
+          <img src="../assets/img/logo.svg" alt="Swiss Plasma Polishing" width="120" height="67">
+        </a>
+        <nav class="site-footer__nav" aria-label="Footer">
+          <a href="../index.html#technology">Technology</a>
+          <a href="../index.html#benefits">Benefits</a>
+          <a href="../index.html#applications">Applications</a>
+          <a href="../index.html#services">Polishing services</a>
+          <a href="../index.html#contact">Contact</a>
+          <a href="../faq/">FAQ</a>
+        </nav>
+      </div>
+      <hr>
+      <div class="site-footer__bottom">
+        <p>© 2026 Swiss Plasma Polishing</p>
+        <div class="site-footer__legal">
+          <a href="../impressum/">Impressum</a>
+          <a href="../privacy/">Privacy Policy</a>
+          <a href="../terms/">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================== Cookie banner (essential-only) ============================== -->
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie notice" hidden>
+    <p class="cookie-banner__text">
+      We use essential cookies only to make this site work. No tracking by default.
+    </p>
+    <div class="cookie-banner__actions">
+      <button class="btn btn--primary" type="button" data-cookie="accept">Got it</button>
+    </div>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

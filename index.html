@@ -109,7 +109,22 @@
             </p>
           </div>
           <div class="tech-row__media">
-            <img class="tech-row__img" src="assets/img/beforeafter.png" alt="Before and after comparison of a plasma polished surface" width="520" height="400">
+            <div class="ba-slider" id="ba-slider">
+              <div class="ba-slider__layer">
+                <img src="assets/img/ba-photo.png" alt="Metal bar after plasma polishing, mirror finish" width="520" height="400">
+                <span class="ba-slider__tag ba-slider__tag--after" aria-hidden="true">After</span>
+              </div>
+              <div class="ba-slider__layer ba-slider__layer--before" aria-hidden="true">
+                <img src="assets/img/ba-photo.png" alt="" width="520" height="400">
+                <span class="ba-slider__tag ba-slider__tag--before">Before</span>
+              </div>
+              <div class="ba-slider__divider" aria-hidden="true"></div>
+              <div class="ba-slider__handle" role="slider" tabindex="0" aria-orientation="horizontal"
+                   aria-label="Compare the surface before and after plasma polishing"
+                   aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></svg>
+              </div>
+            </div>
           </div>
         </div>
 

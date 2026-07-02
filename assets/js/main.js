@@ -1,5 +1,5 @@
-// SPP main script: nav toggle, case study accordion, form tabs, form submit, cookie banner.
-// Native JS only. No dependencies, no trackers.
+// SPP main script: nav toggle, before/after slider, case study accordion,
+// form tabs, form submit, cookie banner. Native JS only. No dependencies, no trackers.
 
 (function () {
   "use strict";
@@ -20,6 +20,57 @@
         siteNav.setAttribute("data-open", "false");
         navToggle.setAttribute("aria-expanded", "false");
         navToggle.setAttribute("aria-label", "Open menu");
+      }
+    });
+  }
+
+  /* ---- Before/after comparison slider ---- */
+  var baSlider = document.getElementById("ba-slider");
+  if (baSlider) {
+    var baHandle = baSlider.querySelector(".ba-slider__handle");
+    var baPos = 50;
+
+    var baSet = function (pct) {
+      baPos = Math.max(0, Math.min(100, pct));
+      baSlider.style.setProperty("--pos", baPos + "%");
+      baHandle.setAttribute("aria-valuenow", String(Math.round(baPos)));
+    };
+    var baFromX = function (clientX) {
+      var r = baSlider.getBoundingClientRect();
+      baSet(((clientX - r.left) / r.width) * 100);
+    };
+
+    var baDragging = false;
+    baSlider.addEventListener("pointerdown", function (e) {
+      baDragging = true;
+      try {
+        baSlider.setPointerCapture(e.pointerId);
+      } catch (err) {
+        /* synthetic or already-released pointers cannot be captured; dragging still works */
+      }
+      baFromX(e.clientX);
+    });
+    baSlider.addEventListener("pointermove", function (e) {
+      if (baDragging) baFromX(e.clientX);
+    });
+    baSlider.addEventListener("pointerup", function () { baDragging = false; });
+    baSlider.addEventListener("pointercancel", function () { baDragging = false; });
+
+    // Keyboard support on the handle (role="slider").
+    baHandle.addEventListener("keydown", function (e) {
+      var step = e.shiftKey ? 10 : 2;
+      if (e.key === "ArrowLeft" || e.key === "ArrowDown") {
+        baSet(baPos - step);
+        e.preventDefault();
+      } else if (e.key === "ArrowRight" || e.key === "ArrowUp") {
+        baSet(baPos + step);
+        e.preventDefault();
+      } else if (e.key === "Home") {
+        baSet(0);
+        e.preventDefault();
+      } else if (e.key === "End") {
+        baSet(100);
+        e.preventDefault();
       }
     });
   }

@@ -887,6 +887,12 @@
 }
 .partners__label {
   display: block;
+  /* Inter, not mono (overrides the .mono-label class on the same element). */
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 1.44px;
+  text-transform: uppercase;
   color: #8c99a4;
 }
 .partners__logos {

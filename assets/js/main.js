@@ -75,8 +75,12 @@
     });
   }
 
-  /* ---- Case study accordion (one open at a time) ---- */
+  /* ---- Case study accordion (one open at a time) ----
+     The active case also drives the spotlight image via data-image.
+     All cases share the same placeholder photo for now; when the client
+     supplies per-case photos, only the data-image attributes change. */
   var caseItems = Array.prototype.slice.call(document.querySelectorAll(".case-item"));
+  var spotlightImg = document.getElementById("spotlight-img");
   caseItems.forEach(function (item) {
     var head = item.querySelector(".case-item__head");
     if (!head) return;
@@ -85,6 +89,20 @@
       caseItems.forEach(function (other) {
         other.setAttribute("aria-expanded", other === item ? "true" : "false");
       });
+      // Swap the spotlight image to this case's photo (skip if identical).
+      var next = item.getAttribute("data-image");
+      if (spotlightImg && next && spotlightImg.getAttribute("src") !== next) {
+        var title = item.querySelector(".case-item__title");
+        spotlightImg.style.opacity = "0";
+        window.setTimeout(function () {
+          spotlightImg.onload = spotlightImg.onerror = function () {
+            spotlightImg.style.opacity = "1";
+            spotlightImg.onload = spotlightImg.onerror = null;
+          };
+          spotlightImg.src = next;
+          if (title) spotlightImg.alt = "Case study: " + title.textContent.trim();
+        }, 180);
+      }
     });
   });
 

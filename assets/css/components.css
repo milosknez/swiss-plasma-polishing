@@ -403,6 +403,9 @@
   height: 100%;
   object-fit: cover;
 }
+.spotlight__image img {
+  transition: opacity 180ms ease; /* crossfade when the active case changes */
+}
 .spotlight__panel {
   background: var(--bg-surface);
   padding: 80px;

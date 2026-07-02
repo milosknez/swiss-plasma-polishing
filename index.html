@@ -168,7 +168,7 @@
     <!-- ============================== Case Studies (Split Spotlight) ============================== -->
     <section class="spotlight" id="case-studies" aria-labelledby="cases-title">
       <div class="spotlight__image">
-        <img src="assets/img/case.png" alt="Featured case study: a metal part finished by plasma polishing" width="720" height="771">
+        <img id="spotlight-img" src="assets/img/case.png" alt="Case study: Dental cobalt-chrome prosthesis" width="720" height="771">
       </div>
       <div class="spotlight__panel">
         <div class="spotlight__head">
@@ -180,7 +180,8 @@
         </div>
 
         <div class="case-list" role="list">
-          <div class="case-item" role="listitem" aria-expanded="true">
+          <!-- data-image: per-case spotlight photo; same placeholder for all until client photos arrive -->
+          <div class="case-item" role="listitem" aria-expanded="true" data-image="assets/img/case.png">
             <div class="case-item__head">
               <h3 class="case-item__title">Dental cobalt-chrome prosthesis</h3>
               <span class="case-item__arrow" aria-hidden="true">
@@ -192,11 +193,11 @@
                 Cobalt-chrome dental prosthesis finished to a smooth, biocompatible surface, including
                 3D printed shapes.
               </p>
-              <a class="link-arrow" href="case-studies/dental-cobalt-chrome-prosthesis.html">Read more <span aria-hidden="true">→</span></a>
+              <a class="link-arrow" href="case-studies/dental-cobalt-chrome-prosthesis/">Read more <span aria-hidden="true">→</span></a>
             </div>
           </div>
 
-          <div class="case-item" role="listitem">
+          <div class="case-item" role="listitem" data-image="assets/img/case.png">
             <div class="case-item__head">
               <h3 class="case-item__title">Internal surface of a bent stainless tube</h3>
               <span class="case-item__arrow" aria-hidden="true">
@@ -212,7 +213,7 @@
             </div>
           </div>
 
-          <div class="case-item" role="listitem">
+          <div class="case-item" role="listitem" data-image="assets/img/case.png">
             <div class="case-item__head">
               <h3 class="case-item__title">Weld joint on an automotive part</h3>
               <span class="case-item__arrow" aria-hidden="true">
@@ -228,7 +229,7 @@
             </div>
           </div>
 
-          <div class="case-item" role="listitem">
+          <div class="case-item" role="listitem" data-image="assets/img/case.png">
             <div class="case-item__head">
               <h3 class="case-item__title">Watch cases</h3>
               <span class="case-item__arrow" aria-hidden="true">
@@ -244,7 +245,7 @@
             </div>
           </div>
 
-          <div class="case-item" role="listitem">
+          <div class="case-item" role="listitem" data-image="assets/img/case.png">
             <div class="case-item__head">
               <h3 class="case-item__title">Special electrolyte for a custom alloy</h3>
               <span class="case-item__arrow" aria-hidden="true">

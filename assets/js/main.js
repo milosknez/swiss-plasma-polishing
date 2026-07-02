@@ -24,6 +24,42 @@
     });
   }
 
+  /* ---- Scroll reveals (home only: <body data-animate>) ----
+     Classes are added here, before first paint, so nothing is hidden
+     when JavaScript is unavailable. CSS gates the effect behind
+     prefers-reduced-motion: no-preference. */
+  if (document.body.hasAttribute("data-animate") && "IntersectionObserver" in window) {
+    var revealTargets = [];
+    var collect = function (selector, stagger) {
+      Array.prototype.forEach.call(document.querySelectorAll(selector), function (el, i) {
+        el.classList.add("reveal");
+        if (stagger) el.style.setProperty("--reveal-delay", (i * 70) + "ms");
+        revealTargets.push(el);
+      });
+    };
+    collect(".section-head");
+    collect(".tech-row");
+    collect(".spotlight__head");
+    collect(".case-item", true);
+    collect(".app-cell", true);
+    collect(".contact__left");
+    collect(".form-card");
+    collect(".partners__logos");
+
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -60px 0px", threshold: 0.1 });
+
+    revealTargets.forEach(function (el) {
+      revealObserver.observe(el);
+    });
+  }
+
   /* ---- Before/after comparison slider ---- */
   var baSlider = document.getElementById("ba-slider");
   if (baSlider) {

@@ -15,7 +15,7 @@
   /* Dark overlay (Figma rgba(16,21,26,0.52)) over the hero photo. */
   background-image:
     linear-gradient(rgba(16, 21, 26, 0.52), rgba(16, 21, 26, 0.52)),
-    url("../../img/about-hero.png");
+    url("../../img/about-hero.webp");
   background-size: cover;
   background-position: center;
   overflow: hidden;

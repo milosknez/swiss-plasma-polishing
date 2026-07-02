@@ -52,11 +52,13 @@
 .faq-item__q::-webkit-details-marker { display: none; }
 .faq-item__q::marker { content: ""; }
 
-.faq-item__q > :first-child { flex: 1 1 auto; }
-
-/* Chevron icon, right-aligned, rotates when open. */
+/* Chevron icon, pinned to the card's right edge, rotates when open.
+   The question is a bare text node inside <summary>, so the icon pushes
+   itself right with margin-left auto (a ">:first-child{flex:1}" rule
+   would target the icon, not the text, and misplace the chevron). */
 .faq-item__icon {
   flex: 0 0 auto;
+  margin-left: auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;

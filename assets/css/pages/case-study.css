@@ -201,13 +201,6 @@
   gap: 14px;
   color: var(--accent);
 }
-.cs-story-block__num {
-  font-family: var(--font-mono);
-  font-weight: 600;
-  font-size: 30px;
-  line-height: 1;
-  letter-spacing: 1px;
-}
 .cs-story-block__kicker {
   font-family: var(--font-mono);
   font-weight: 500;

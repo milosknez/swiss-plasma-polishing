@@ -112,6 +112,13 @@
   grid-template-columns: 1fr 640px;
   align-items: stretch;
   min-height: 700px;
+  /* Cap the composition at the Figma frame width and center it. Up to 1440
+     the photo touches the viewport's right edge exactly as in Figma; on
+     wider screens the whole block centers, so the photo keeps a FIXED left
+     position relative to the 1200px content and bleeds only 120px past it
+     instead of chasing the viewport edge. */
+  max-width: 1440px;
+  margin-inline: auto;
 }
 .hero__copy {
   display: flex;
@@ -119,8 +126,9 @@
   justify-content: center;
   gap: var(--space-8);
   /* Align the hero text left edge to the same gutter as the centered 1200px
-     container content, so hero copy lines up with every other section. */
-  padding-left: max(clamp(20px, 5vw, 120px), calc((100vw - 1200px) / 2));
+     container content, so hero copy lines up with every other section.
+     min(100vw, 1440px) mirrors the capped .hero__inner width above. */
+  padding-left: max(clamp(20px, 5vw, 120px), calc((min(100vw, 1440px) - 1200px) / 2));
   padding-right: var(--space-20);
   padding-block: var(--space-16);
 }

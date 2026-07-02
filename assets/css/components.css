@@ -15,7 +15,8 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-9);
-  min-height: 103px;
+  /* No min-height: .container is content-box, so 103px would ADD to the
+     18px paddings. Logo 67px + 2x18px = exactly Figma's 103px header. */
   padding-block: 18px;
 }
 .site-header__logo {
@@ -29,7 +30,7 @@
 .site-nav {
   display: flex;
   align-items: center;
-  gap: var(--space-9);
+  gap: 36px; /* Figma 451:190 */
 }
 .site-nav__links {
   display: flex;
@@ -133,8 +134,12 @@
 .hero .eyebrow {
   font-weight: 600;
 }
+.hero__title {
+  color: #000; /* Figma headline uses plain black */
+}
 .hero__subhead {
   max-width: 592px;
+  line-height: 1.55;
 }
 .hero__cta {
   display: flex;
@@ -181,6 +186,14 @@
   height: 100%;
   object-fit: cover;
 }
+/* Figma 451:212: dark bottom gradient over the hero photo. */
+.hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(13, 17, 22, 0.05) 0%, rgba(13, 17, 22, 0.12) 60%, rgba(13, 17, 22, 0.6) 100%);
+  pointer-events: none;
+}
 
 @media (max-width: 1024px) {
   .hero__inner {
@@ -201,6 +214,21 @@
    ============================================================ */
 .technology {
   background: var(--bg-page);
+}
+/* Figma 465:3: this heading block uses an 18px gap (Applications keeps 20px). */
+.technology .section-head {
+  gap: 18px;
+}
+.technology .section-head .intro {
+  line-height: 1.62;
+}
+/* Figma 465:5: tracking -1px and plain black on this section's headings. */
+.technology .h2 {
+  letter-spacing: -1px;
+  color: #000;
+}
+.technology .h3 {
+  color: #000;
 }
 .tech-row {
   display: grid;
@@ -224,6 +252,10 @@
   line-height: 1.62;
   color: var(--text-secondary);
 }
+/* Row eyebrows use 1.44px tracking in Figma (heading eyebrow keeps 1.68px). */
+.tech-row__text .eyebrow {
+  letter-spacing: 1.44px;
+}
 .tech-row__media {
   width: 100%;
   min-height: 400px;
@@ -237,8 +269,27 @@
   width: 100%;
   height: 400px;
   object-fit: cover;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-strong); /* Figma: before/after and jet slots */
   border-radius: var(--radius-2xl);
+}
+/* Bath slot (reverse row) uses the lighter border in Figma. */
+.tech-row--reverse .tech-row__img {
+  border-color: var(--border);
+}
+/* Jet slot: Figma 465:31 has a 150px dark gradient hugging the bottom edge. */
+.tech-row__media--overlay {
+  position: relative;
+}
+.tech-row__media--overlay::after {
+  content: "";
+  position: absolute;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  height: 150px;
+  border-radius: 0 0 var(--radius-2xl) var(--radius-2xl);
+  background: linear-gradient(180deg, rgba(13, 17, 22, 0) 0%, rgba(13, 17, 22, 0.6) 100%);
+  pointer-events: none;
 }
 .tech-row--reverse .tech-row__media {
   order: -1;
@@ -374,14 +425,14 @@
   font-family: var(--font-display);
   font-weight: 500;
   font-size: 20px;
-  line-height: 1.25;
+  line-height: 1.3;
   color: var(--text-primary);
 }
 .case-item__body {
   display: none;
   padding: 10px var(--space-6) var(--space-6);
   flex-direction: column;
-  gap: var(--space-4);
+  gap: 26px; /* Figma: desc to Read-more spacing in the expanded card */
 }
 .case-item__desc {
   color: var(--text-secondary);
@@ -400,7 +451,11 @@
   border-radius: var(--radius-xl);
 }
 .case-item[aria-expanded="true"] .case-item__head {
-  padding-bottom: 0;
+  padding: var(--space-6) var(--space-6) 0; /* Figma card: p-24 */
+}
+/* Figma renders no arrow on collapsed rows (empty icon slot). */
+.case-item:not([aria-expanded="true"]) .case-item__arrow {
+  display: none;
 }
 .case-item[aria-expanded="true"] .case-item__body {
   display: flex;
@@ -428,12 +483,13 @@
    ============================================================ */
 .applications {
   background: var(--bg-page);
+  border-top: 1px solid #ededed; /* Figma 473:2 */
 }
 .apps-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-6);
-  margin-top: var(--space-14);
+  margin-top: 60px; /* Figma: heading-to-grid gap */
 }
 .app-cell {
   background: #fff;
@@ -464,7 +520,7 @@
   font-weight: 500;
   font-size: 21px;
   letter-spacing: -0.2px;
-  color: var(--text-primary);
+  color: #000; /* Figma card titles use plain black */
 }
 .app-cell__body {
   color: var(--text-secondary);
@@ -508,6 +564,22 @@
    ============================================================ */
 .contact {
   background: var(--bg-page);
+  padding-block: 110px; /* Figma 451:375: py-110, not the shared 112 */
+}
+/* Scoped heading overrides (Figma contact heading differs from other sections). */
+.contact .section-head {
+  gap: 14px;
+}
+.contact .section-head .intro {
+  max-width: 460px; /* wraps to two lines as in Figma */
+  line-height: 1.55;
+}
+.contact .h2 {
+  font-size: 48px;
+  letter-spacing: -1px;
+}
+.contact .eyebrow {
+  letter-spacing: 1.44px;
 }
 .contact__row {
   display: grid;
@@ -519,7 +591,8 @@
 .contact__details {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-9); /* Figma 556:817: 40px between the two rows */
+  padding-top: 20px;
 }
 .contact-detail {
   display: flex;
@@ -539,45 +612,32 @@
 }
 .contact-detail__label {
   font-family: var(--font-body);
-  font-weight: 600;
+  font-weight: 400; /* Figma: Inter Regular */
   font-size: 12px;
-  letter-spacing: 0.12em;
+  letter-spacing: normal;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: #635f5b; /* verbatim Figma value */
 }
 .contact-detail__value {
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: 16px;
-  color: var(--text-primary);
+  font-size: 18px;
+  color: #2a2622; /* verbatim Figma value */
 }
 .contact__map {
   position: relative;
-  margin-top: var(--space-6);
+  margin-top: 36px; /* Figma left column gap */
   height: 300px;
-  border-radius: var(--radius-2xl);
+  border-radius: var(--radius-lg); /* Figma 451:389: 8px */
   overflow: hidden;
-  border: 1px solid var(--border);
+  border: 1px solid #cdd9e2; /* verbatim Figma value */
 }
 .contact__map iframe {
   width: 100%;
   height: 100%;
   border: 0;
 }
-.contact__map-chip {
-  position: absolute;
-  left: 18px;
-  bottom: 18px;
-  font-family: var(--font-mono);
-  font-size: var(--type-mono-xs);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.92);
-  padding: 8px 12px;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-}
+/* Map chip removed: the chip node exists in Figma but is clipped/invisible. */
 
 /* Form card */
 .form-card {
@@ -695,7 +755,7 @@
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-primary);
+  color: #000; /* Figma: text-black */
 }
 .field__input,
 .field__textarea {
@@ -806,6 +866,9 @@
   width: auto;
   object-fit: contain;
 }
+.partner-logo[src*="partner-bridge"] {
+  height: 34.65px; /* Figma 482:1247: 132x34.65 */
+}
 
 /* ============================================================
    Footer
@@ -844,7 +907,8 @@
   flex-wrap: wrap;
   padding-top: var(--space-6);
   font-size: 13px;
-  color: var(--text-muted);
+  line-height: normal; /* Figma 451:451 */
+  color: #8c99a4; /* Figma 451:451 */
 }
 .site-footer__legal {
   display: flex;

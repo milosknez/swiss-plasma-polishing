@@ -101,7 +101,7 @@ ol {
   font-family: var(--font-display);
   font-weight: 600;
   font-size: var(--type-h2);
-  line-height: 1.08;
+  line-height: normal; /* Figma: leading-[normal], Switzer renders ~1.32 */
   letter-spacing: -1.2px;
   color: var(--text-primary);
 }
@@ -110,8 +110,8 @@ ol {
   font-family: var(--font-display);
   font-weight: 600;
   font-size: var(--type-h3);
-  line-height: 1.15;
-  letter-spacing: -0.4px;
+  line-height: normal; /* Figma: leading-[normal] */
+  letter-spacing: 0;
   color: var(--text-primary);
 }
 
@@ -197,7 +197,7 @@ ol {
   padding: 16px 32px;
   border-radius: var(--radius-lg);
   font-family: var(--font-body);
-  font-weight: 500;
+  font-weight: 600; /* Figma Button component: Inter Semi Bold */
   font-size: var(--type-button);
   line-height: 1;
   text-align: center;
@@ -233,7 +233,7 @@ ol {
 .link-arrow {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: 4px; /* Figma renders "Read more →" as one text run, word-space wide */
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 16px;
@@ -259,7 +259,7 @@ ol {
   font-family: var(--font-body);
   font-size: 18px;
   line-height: 1.6;
-  max-width: 720px;
+  /* No own max-width: fills the .section-head 842px block, as in Figma. */
 }
 .section-head--left {
   align-items: flex-start;

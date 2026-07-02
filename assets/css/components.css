@@ -342,7 +342,7 @@
 .ba-slider__tag {
   position: absolute;
   top: 23px;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 500;
   font-size: 11px;
   line-height: normal;

@@ -150,7 +150,7 @@
   border-top: 1px solid var(--border);
 }
 .cs-spec__label {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 500;
   font-size: 11px;
   line-height: 1.2;
@@ -202,7 +202,7 @@
   color: var(--accent);
 }
 .cs-story-block__kicker {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 500;
   font-size: 12px;
   line-height: 1.2;
@@ -253,7 +253,7 @@
   text-align: right;
 }
 .cs-nextcase__kicker {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 500;
   font-size: 11px;
   line-height: 1.2;

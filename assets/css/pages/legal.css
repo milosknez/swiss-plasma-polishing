@@ -25,8 +25,7 @@
   gap: var(--space-5); /* 20px */
 }
 
-/* Hero eyebrow. Figma uses IBM Plex Mono 12px in the accent color,
-   so this matches .mono-label but recolored to accent. */
+/* Hero eyebrow: the shared 12px uppercase label, recolored to accent. */
 .legal-hero__eyebrow {
   color: var(--accent);
   letter-spacing: 0.12em; /* Figma tracking 1.44px on 12px */
@@ -91,7 +90,7 @@
   gap: var(--space-2); /* 8px target; nearest to Figma 6px */
 }
 .legal-row__label {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 500;
   font-size: 12px;
   line-height: 1.4;

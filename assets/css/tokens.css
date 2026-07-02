@@ -38,9 +38,8 @@
   --warning: #cc8a1f;
   --danger: #b04438;
 
-  /* Type families (match Figma: Switzer for display/headings, Inter for body) */
+  /* Type families: Switzer (headings) and Inter (everything else). */
   --font-display: "Switzer", "Manrope", system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
   --font-body: "Inter", system-ui, sans-serif;
 
   /* Type scale (px values; convert to rem in component CSS if preferred) */

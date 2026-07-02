@@ -176,10 +176,9 @@ ol {
   color: var(--accent);
 }
 
-/* Mono label: IBM Plex Mono 12px, used only where Figma uses mono
-   (CASE STUDIES, SUPPORTED BY, small chips). */
+/* Small uppercase label (CASE STUDIES, SUPPORTED BY, chips). Inter. */
 .mono-label {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 500;
   font-size: 12px;
   line-height: 1.4;
@@ -286,7 +285,7 @@ ol {
   overflow: hidden;
 }
 .img-placeholder__label {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: var(--type-mono-xs);
   letter-spacing: 0.08em;
   text-transform: uppercase;

@@ -452,11 +452,10 @@
 /* ============================================================
    Video (YouTube embed)
    ============================================================
-   Click-to-load facade styled after the Figma "SPP - Video (YT embed)"
-   frame: flat surface 16:9 slot with a white play circle. main.js swaps
-   the button for a youtube-nocookie iframe on click, so no third-party
-   request happens before the visitor asks for the video. Change the
-   video via the data-youtube-id attribute in index.html. */
+   The YouTube player is embedded directly in index.html (client wants
+   the video visible right away, no facade). This block only frames it:
+   a 16:9 slot at content width with the shared media border and radius.
+   Change the video by editing the iframe src in index.html. */
 .video-section {
   background: var(--bg-page);
 }
@@ -469,41 +468,6 @@
   border-radius: var(--radius-2xl);
   overflow: hidden;
 }
-.video-embed__button {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-6);
-  cursor: pointer;
-}
-.video-embed__play {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: #fff;
-  color: var(--accent);
-  box-shadow: 0 8px 22px -6px rgba(22, 27, 33, 0.16);
-  transition: transform 150ms ease;
-}
-.video-embed__button:hover .video-embed__play {
-  transform: scale(1.06);
-}
-.video-embed__label {
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: 12px;
-  letter-spacing: 1.44px;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-}
-/* Injected by main.js after the visitor clicks play. */
 .video-embed iframe {
   position: absolute;
   inset: 0;

@@ -200,11 +200,12 @@
     </section>
 
     <!-- ============================== Video (YouTube embed) ============================== -->
-    <!-- Click-to-load facade: nothing from YouTube is requested until the visitor
-         clicks play, then main.js injects a youtube-nocookie.com iframe (keeps the
-         no-trackers rule and Lighthouse intact). To change the video, edit the
-         data-youtube-id attribute below. The hero "Watch the process" button
-         anchors here (#video). Designed in Figma: frame "SPP - Video (YT embed)". -->
+    <!-- The YouTube player is embedded directly so the video is visible right away
+         (client preference over the Figma facade). youtube-nocookie.com keeps
+         cookies away until the visitor presses play; loading="lazy" defers the
+         iframe until the section is scrolled near, so initial page load stays
+         fast. To change the video, edit the iframe src below. The hero "Watch
+         the process" button anchors here (#video). -->
     <section class="video-section section" id="video" aria-labelledby="video-title">
       <div class="container">
         <div class="section-head">
@@ -213,13 +214,13 @@
           <p class="intro">See how the plasma jet finishes a real part in one clean step.</p>
         </div>
 
-        <div class="video-embed" data-youtube-id="AYaXNKc_V6w">
-          <button class="video-embed__button" type="button" aria-label="Play the plasma process video (loads the YouTube player)">
-            <span class="video-embed__play" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4v16l14-8z"/></svg>
-            </span>
-            <span class="video-embed__label">Plays via YouTube</span>
-          </button>
+        <div class="video-embed">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/AYaXNKc_V6w?rel=0"
+            title="Swiss Plasma Polishing process video"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
         </div>
       </div>
     </section>

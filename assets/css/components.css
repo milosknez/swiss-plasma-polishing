@@ -109,6 +109,21 @@
 .nav-toggle span::before { transform: translateY(-7px); }
 .nav-toggle span::after { transform: translateY(5px); }
 
+/* Open state: the middle bar fades out and the outer bars rotate into an X.
+   main.js flips aria-expanded on the button, nothing else is needed. */
+.nav-toggle span {
+  transition: transform 200ms ease, opacity 200ms ease, background-color 200ms ease;
+}
+.nav-toggle[aria-expanded="true"] span {
+  background-color: transparent;
+}
+.nav-toggle[aria-expanded="true"] span::before {
+  transform: translateY(0) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] span::after {
+  transform: translateY(-2px) rotate(-45deg);
+}
+
 @media (max-width: 1024px) {
   .nav-toggle { display: inline-flex; }
   .site-nav {

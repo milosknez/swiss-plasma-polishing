@@ -1092,73 +1092,101 @@
 }
 
 /* ============================================================
-   Footer
+   Footer (expanded, Figma 667:1089)
    ============================================================
-   Same repeat-per-page caveat as the header: footer nav and
-   legal links are plain HTML on every page, edit all pages
-   together. */
+   Brand block with tagline on the left, three link columns on the
+   right (Navigation, Case Studies, Social media), then a legal row.
+   Same repeat-per-page caveat as the header: the footer is plain
+   HTML on every page, edit all pages together. */
 .site-footer {
   background: var(--bg-page);
-  /* 24px is the designer's explicit choice. Figma says 40, do not "fix"
-     it back to match the file. */
-  padding-bottom: var(--space-6); /* 24px */
+  padding-bottom: var(--space-10); /* 48px, per the expanded design */
 }
 .site-footer hr {
   border: none;
   border-top: 1px solid var(--border-header);
 }
-.site-footer__row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-9);
-  padding-block: var(--space-10);
-}
-.site-footer__logo img { width: 120px; height: auto; }
-.site-footer__nav {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center; /* keeps the LinkedIn icon on the text baseline row */
-  gap: 12px 28px;
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: var(--type-ui);
-  color: var(--text-secondary);
-}
-/* LinkedIn icon, last item in the footer nav on every page. */
-.site-footer__linkedin {
-  display: inline-flex;
-  align-items: center;
-  color: var(--text-secondary);
-  transition: color 150ms ease;
-}
-.site-footer__linkedin:hover {
-  color: var(--accent);
-}
-.site-footer__nav a:hover { color: var(--accent); }
-.site-footer__bottom {
+.site-footer__main {
   display: flex;
   align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-10);
+  padding-block: var(--space-18); /* 80px */
+}
+.site-footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  width: 300px;
+  flex-shrink: 0;
+}
+.site-footer__brand img {
+  width: 144px;
+  height: auto;
+  display: block;
+}
+.site-footer__tagline {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #8c99a4;
+}
+.site-footer__cols {
+  display: flex;
+  gap: var(--space-14); /* 64px */
+}
+.site-footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5); /* 20px */
+  width: 200px;
+}
+.site-footer__col-title {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #8c99a4;
+}
+.site-footer__col-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3); /* 12px */
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+.site-footer__col-links a:hover { color: var(--accent); }
+.site-footer__bottom {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: var(--space-6);
   flex-wrap: wrap;
   padding-top: var(--space-6);
   font-size: 13px;
-  line-height: normal; /* Figma 451:451 */
-  color: #8c99a4; /* Figma 451:451 */
+  line-height: normal;
+  color: #8c99a4;
 }
 .site-footer__legal {
   display: flex;
-  gap: 19px;
+  gap: var(--space-6); /* 24px, per the expanded design */
   flex-wrap: wrap;
 }
 .site-footer__legal a:hover { color: var(--accent); }
 
-@media (max-width: 768px) {
-  .site-footer__row {
+@media (max-width: 900px) {
+  .site-footer__main {
     flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-6);
+    gap: var(--space-9);
+    padding-block: var(--space-10);
+  }
+  .site-footer__cols {
+    flex-wrap: wrap;
+    gap: var(--space-9);
+  }
+  .site-footer__col {
+    width: 160px;
   }
 }
 
@@ -1199,4 +1227,87 @@
 }
 .cookie-banner .btn {
   padding: 10px 20px;
+}
+
+/* ============================================================
+   Mobile pass (Figma "SPP - Home (Mobile)", node 658:537)
+   ============================================================
+   Phone-specific values from the mobile design frame. Kept in one
+   block, last in the file, so these later rules win over the
+   desktop values above at equal specificity. */
+@media (max-width: 768px) {
+  /* Hero: tighter copy block, CTAs stacked with a 12px gap. */
+  .hero__copy {
+    padding-top: var(--space-10);   /* 48px */
+    padding-bottom: var(--space-12); /* 56px */
+  }
+  .hero__cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  /* Technology rows: 20px image-to-text gap, 40px between rows,
+     240px media height. */
+  .tech-row {
+    gap: var(--space-5);
+    margin-top: var(--space-9);
+  }
+  .tech-row__img,
+  .ba-slider {
+    height: 240px;
+  }
+  .tech-row__media {
+    min-height: 0;
+  }
+
+  /* Case studies: shorter photo, panel padding and rhythm from the
+     mobile frame. */
+  .spotlight__image {
+    min-height: 300px;
+  }
+  .spotlight__panel {
+    padding: var(--space-10) 20px; /* 48 / 20 */
+    gap: var(--space-7);           /* 28px */
+  }
+
+  /* Applications: tighter cards with a smaller number badge. */
+  .apps-grid {
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+  }
+  .app-cell {
+    padding: var(--space-6);
+    gap: 14px;
+  }
+  .app-cell__num {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    font-size: 17px;
+  }
+
+  /* Contact: tighter rhythm, 44px icon circles, 220px map. */
+  .contact__row {
+    margin-top: var(--space-8);
+    gap: var(--space-8);
+  }
+  .contact__details {
+    gap: var(--space-5);
+    padding-top: 0;
+  }
+  .contact-detail__icon {
+    width: 44px;
+    height: 44px;
+  }
+  .contact__map {
+    height: 220px;
+    margin-top: var(--space-8);
+  }
+
+  /* Partners: marquee logos scaled to 72 percent of desktop sizes. */
+  .partner-logo[src*="partner-bfh"] { height: 72px; }
+  .partner-logo[src*="partner-be-advanced"] { height: 19px; }
+  .partner-logo[src*="partner-bridge"] { height: 25px; }
+  .partner-logo[src*="partner-gebert-ruf"] { height: 40px; }
 }

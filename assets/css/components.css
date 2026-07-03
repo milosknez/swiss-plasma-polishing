@@ -1284,22 +1284,47 @@
     letter-spacing: 1.2px;
   }
 
-  /* Hero: tighter copy block, CTAs stacked with a 12px gap. */
+  /* Hero (mobile frame): the photo is hidden, the copy is centered on the
+     gradient wash, and the two CTAs stack at equal width (the widest one
+     sets the column, the other stretches to match). */
+  .hero__media {
+    display: none;
+  }
+  .hero__inner {
+    min-height: 0;
+  }
   .hero__copy {
-    padding-top: var(--space-10);   /* 48px */
-    padding-bottom: var(--space-12); /* 56px */
+    padding: var(--space-10) 20px var(--space-12); /* 48 / 20 / 56 */
+  }
+  .hero__copy-wrap {
+    gap: var(--space-5); /* 20px */
+    align-items: center;
+    text-align: center;
+    margin-inline: auto;
   }
   .hero__cta {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    width: max-content;
+    max-width: 100%;
     gap: 12px;
   }
 
+  /* Section heading stacks tighten to a 14px gap on phones (the scoped
+     Technology 18px selector is repeated so this later rule wins). */
+  .section-head,
+  .technology .section-head {
+    gap: 14px;
+  }
+
   /* Technology rows: 20px image-to-text gap, 40px between rows,
-     240px media height. */
+     240px media height, 12px inside the text stack. */
   .tech-row {
     gap: var(--space-5);
     margin-top: var(--space-9);
+  }
+  .tech-row__text {
+    gap: 12px;
   }
   .tech-row__img,
   .ba-slider {
@@ -1318,6 +1343,14 @@
     padding: var(--space-10) 20px; /* 48 / 20 */
     gap: var(--space-7);           /* 28px */
   }
+  .case-item__head {
+    padding: 18px 20px;
+  }
+
+  /* Video: 28px heading-to-player gap on phones. */
+  .video-embed {
+    margin-top: var(--space-7);
+  }
 
   /* Applications: tighter cards with a smaller number badge. */
   .apps-grid {
@@ -1335,10 +1368,25 @@
     font-size: 17px;
   }
 
-  /* Contact: tighter rhythm, 44px icon circles, 220px map. */
+  /* Contact: 48px section padding (the scoped 110px desktop rule would
+     otherwise survive on phones), tighter rhythm, 44px icon circles,
+     220px map, full-width submit, 45px inputs, 16px form gaps. */
+  .contact {
+    padding-block: var(--space-10);
+  }
   .contact__row {
     margin-top: var(--space-8);
     gap: var(--space-8);
+  }
+  .form-card,
+  .form-body {
+    gap: var(--space-4); /* 16px */
+  }
+  .form-body .btn {
+    width: 100%;
+  }
+  .field__input {
+    height: 45px;
   }
   .contact__details {
     gap: var(--space-5);
@@ -1353,7 +1401,14 @@
     margin-top: var(--space-8);
   }
 
-  /* Partners: marquee logos scaled to 72 percent of desktop sizes. */
+  /* Partners: 40px section padding, 24px label-to-strip gap, marquee
+     logos scaled to 72 percent of desktop sizes. */
+  .partners {
+    padding-block: var(--space-9); /* 40px */
+  }
+  .partners__logos {
+    margin-top: var(--space-6); /* 24px */
+  }
   .partner-logo[src*="partner-bfh"] { height: 72px; }
   .partner-logo[src*="partner-be-advanced"] { height: 19px; }
   .partner-logo[src*="partner-bridge"] { height: 25px; }

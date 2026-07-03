@@ -27,7 +27,23 @@
 </head>
 <body>
 
+  <!--
+    PAGE MAP: About page (/about/). Sections: Header, Hero, Our story,
+    Why customers choose us (values cards), CTA band, Partners, Footer, Cookie banner.
+    Loads assets/css/pages/about.css on top of the shared tokens/base/components stylesheets.
+
+    EDITING NOTES:
+    - Header, footer and cookie banner are copied from index.html with ../ path prefixes.
+      There is NO templating: when the navigation changes, edit it by hand in ALL pages
+      (index.html, about, faq, impressum, privacy, terms) and in both header and footer.
+    - Hero photo is a CSS background on .about-hero in about.css, not an <img> here.
+      To swap it, change the background-image URL in that file.
+    - Story image is a placeholder slot (IMG/team) awaiting client photography.
+    - Values cards and the CTA band follow Figma frame 496:2.
+  -->
+
   <!-- ============================== Header ============================== -->
+  <!-- Shared header, keep in sync with index.html. Mobile toggle is wired in ../assets/js/main.js via #site-nav. -->
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="site-header__logo" href="../index.html" aria-label="Swiss Plasma Polishing home">
@@ -53,6 +69,7 @@
 
   <main>
     <!-- ============================== Hero ============================== -->
+    <!-- The photo behind this hero is set in about.css (.about-hero background), not in this markup. -->
     <section class="about-hero" aria-labelledby="about-hero-title">
       <div class="container">
         <div class="about-hero__inner">
@@ -82,6 +99,9 @@
               we finish parts for medical, semiconductor, food and industrial customers across Europe.
             </p>
           </div>
+          <!-- Placeholder slot, the IMG/... (replace) label marks it. How to edit: when the client
+               sends the team photo, replace this div with an <img> (WebP, converted via
+               scripts/convert-images.sh at q82) and drop the img-placeholder classes. -->
           <div class="about-story__media img-placeholder">
             <span class="img-placeholder__label">IMG/team (replace)</span>
           </div>
@@ -90,6 +110,9 @@
     </section>
 
     <!-- ============================== Why customers choose us ============================== -->
+    <!-- Values cards per Figma frame 496:2. Each card reuses the shared .app-cell component
+         (components.css) with .about-card overrides in about.css. Icons are inline SVG that
+         inherit color via currentColor. How to edit: copy a whole <article> block to add a card. -->
     <section class="about-values section" aria-labelledby="about-values-title">
       <div class="container">
         <div class="section-head">
@@ -145,6 +168,7 @@
     </section>
 
     <!-- ============================== CTA band ============================== -->
+    <!-- CTA per Figma frame 496:2. Button points at the home contact form, there is no contact page. -->
     <section class="about-cta section" aria-labelledby="about-cta-title">
       <div class="container">
         <div class="about-cta__inner">
@@ -158,6 +182,8 @@
     </section>
 
     <!-- ============================== Partners ============================== -->
+    <!-- Same partners strip as index.html. Per-logo height attributes balance visual weight
+         (values from Figma), keep them when swapping files. Logos are WebP at q90. -->
     <section class="partners section" id="partners" aria-label="Supported by">
       <div class="container">
         <p class="partners__label mono-label">Supported by</p>
@@ -172,6 +198,7 @@
   </main>
 
   <!-- ============================== Footer ============================== -->
+  <!-- Shared footer, keep in sync with index.html. Footer nav mirrors the header nav, edit both together. -->
   <footer class="site-footer">
     <div class="container">
       <hr>
@@ -200,6 +227,7 @@
   </footer>
 
   <!-- ============================== Cookie banner (essential-only) ============================== -->
+  <!-- Starts hidden; main.js unhides it unless localStorage key "spp-cookie-ack" is set. Keep the hidden attribute. -->
   <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie notice" hidden>
     <p class="cookie-banner__text">
       We use essential cookies only to make this site work. No tracking by default.

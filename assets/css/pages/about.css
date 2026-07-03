@@ -1,8 +1,16 @@
-/* About page ("SPP — Who we are"). Only styles not covered by shared classes.
-   All classes prefixed with `about-` to avoid collisions. */
+/* ============================================================
+   about.css - page styles for /about/ (Figma frame "SPP - Who we are").
+   Loads after tokens.css, base.css and components.css: the header,
+   footer, .container, .section, .section-head, .eyebrow, .h2, .btn
+   and the .img-placeholder slot all come from those shared files.
+   Only styles not covered by shared classes live here. All classes
+   prefixed with `about-` to avoid collisions.
+   Page map: hero (photo background) > story (text + image slot) >
+   values (3 cards on grey) > CTA band. Copy lives in about/index.html.
+   ============================================================ */
 
 /* ============================================================
-   Hero — background photo with a dark overlay + white text
+   Hero - background photo with a dark overlay + white text
    ============================================================ */
 .about-hero {
   position: relative;
@@ -12,7 +20,14 @@
   /* Figma: pt 150px (clears the 103px sticky header), pb 120px. */
   padding-top: 150px;
   padding-bottom: var(--space-28); /* 120px */
-  /* Dark overlay (Figma rgba(16,21,26,0.52)) over the hero photo. */
+  /* Hero photo is a CSS background, not an <img>, so it has no
+     IMG/... (replace) label in the HTML; this url() IS the swap point.
+     The dark overlay (Figma rgba(16,21,26,0.52)) is baked into the
+     stack as a flat gradient layer so the white text stays readable,
+     keep it in front of whatever photo goes in.
+     How to edit: when the real photo arrives, convert it with
+     scripts/convert-images.sh (photos are WebP q82) and overwrite
+     assets/img/about-hero.webp, or point the url() at the new file. */
   background-image:
     linear-gradient(rgba(16, 21, 26, 0.52), rgba(16, 21, 26, 0.52)),
     url("../../img/about-hero.webp");
@@ -58,7 +73,7 @@
 }
 
 /* ============================================================
-   Story — text left, image placeholder right
+   Story - text left, image placeholder right
    ============================================================ */
 .about-story {
   background: var(--bg-page);
@@ -94,7 +109,13 @@
   width: 520px;
   height: 420px;
   border-radius: var(--radius-2xl); /* 12px */
-  /* Figma 496:25: flat light-blue slot, no border, plain mono label. */
+  /* Figma 496:25: flat light-blue slot, no border, plain label.
+     Deliberately overrides the shared .img-placeholder look from
+     base.css (striped background + hairline border): this page uses a
+     flat --bg-surface fill to mirror Figma, so do not "restore" the
+     border. How to edit: when the client photo arrives, replace the
+     .img-placeholder div in about/index.html with an <img> and keep
+     this width/height/radius. */
   background: var(--bg-surface);
   border: none;
 }
@@ -118,9 +139,11 @@
 }
 
 /* ============================================================
-   Values — "Why customers choose us" (3 cards)
+   Values - "Why customers choose us" (3 cards)
    ============================================================ */
 .about-values {
+  /* Raw #f9f9f9 on purpose (Figma 496:27): a neutral grey band, NOT
+     the light-blue --bg-surface token. Do not "fix" it to a token. */
   background: #f9f9f9; /* Figma 496:27 */
 }
 /* Figma 496:31/32: title 40px tracking -1; intro 17px/1.55. */
@@ -136,7 +159,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-6); /* 24px */
-  margin-top: 44px; /* Figma heading-to-grid gap (no 44px token exists) */
+  margin-top: 44px; /* Figma heading-to-grid gap; raw value on purpose, no 44px spacing token exists */
 }
 /* Card: reuses the .app-cell look. Icon tile holds a line icon in accent. */
 .about-card {
@@ -173,7 +196,7 @@
 }
 
 /* ============================================================
-   CTA band — centered heading, intro, one primary button
+   CTA band - centered heading, intro, one primary button
    ============================================================ */
 .about-cta {
   background: var(--bg-page);

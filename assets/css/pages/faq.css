@@ -1,7 +1,15 @@
 /* ============================================================
-   FAQ page — page-specific styles only.
+   faq.css - page styles for /faq/ only.
    Shared classes (.container, .section-head, .h2, .eyebrow,
-   .btn) carry the rest. Prefixed with faq- to avoid collisions.
+   .btn) carry the rest, from base.css/components.css on top of
+   tokens.css. Prefixed with faq- to avoid collisions.
+   The accordion is native <details>/<summary> with ZERO JavaScript:
+   the browser handles open/close, this file only restyles it. The
+   first item ships expanded via the `open` attribute on its
+   <details> in faq/index.html, not via CSS or JS.
+   How to edit: add or remove questions by duplicating a
+   <details class="faq-item"> block in faq/index.html; no CSS
+   changes needed.
    ============================================================ */
 
 /* ---- Intro / mini hero (Figma: pt 120, pb 56) ---- */
@@ -55,7 +63,9 @@
 /* Chevron icon, pinned to the card's right edge, rotates when open.
    The question is a bare text node inside <summary>, so the icon pushes
    itself right with margin-left auto (a ">:first-child{flex:1}" rule
-   would target the icon, not the text, and misplace the chevron). */
+   would target the icon, not the text, and misplace the chevron).
+   That exact bug shipped once: keep margin-left auto here and do not
+   swap it for a flex-grow rule on a child selector. */
 .faq-item__icon {
   flex: 0 0 auto;
   margin-left: auto;
@@ -72,8 +82,10 @@
   color: var(--accent);
 }
 
-/* Answer body. Top gap of 12px between question and answer (Figma),
-   achieved with negative top padding since summary owns the block padding. */
+/* Answer body. Zero top padding on purpose: the summary's own bottom
+   padding already provides the question-to-answer gap, so any top
+   padding here would widen it (an earlier note said "negative top
+   padding", which was wrong, padding cannot be negative). */
 .faq-item__body {
   padding: 0 28px 26px;
 }

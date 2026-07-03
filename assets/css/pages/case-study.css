@@ -1,6 +1,19 @@
-/* Case Study detail page. Layout values mirror the Figma
-   "SPP — Case Study (Dental)" frame (node 593:2). Only styles not covered by
-   the shared classes live here. Prefixed "cs-" to avoid collisions. */
+/* ============================================================
+   case-study.css - one stylesheet shared by all five case pages
+   under /case-studies/ (dental-cobalt-chrome-prosthesis,
+   bent-stainless-tube, weld-joint-automotive-part, watch-cases,
+   custom-alloy-electrolyte). Layout values mirror the Figma
+   "SPP - Case Study (Dental)" frame (node 593:2); the other four
+   pages reuse the same template with [Placeholder] copy until the
+   client delivers text. Only styles not covered by the shared
+   classes (tokens.css/base.css/components.css) live here.
+   Prefixed "cs-" to avoid collisions.
+   Page map: breadcrumb > hero > full-width media > overview with
+   specs sidebar > 3 story blocks > prev/next nav > CTA band.
+   How to add a case study: copy an existing case folder, update the
+   copy and specs, then re-link the prev/next chain (see the Next
+   case navigation note below); no CSS changes needed.
+   ============================================================ */
 
 /* ============================================================
    Breadcrumb
@@ -44,7 +57,9 @@
   gap: var(--space-5); /* 20px */
   align-items: flex-start;
 }
-/* Mono eyebrow chip: "CASE STUDY · MEDICAL · COBALT-CHROME" */
+/* Uppercase eyebrow row, e.g. "CASE STUDY · MEDICAL · COBALT-CHROME".
+   Set in Inter (--font-body); it was mono before IBM Plex Mono was
+   removed sitewide. The dots are separate .cs-hero__eyebrow-dot spans. */
 .cs-hero__eyebrow {
   display: flex;
   align-items: center;
@@ -84,6 +99,8 @@
 
 /* ============================================================
    Hero media (full-width placeholder)
+   The .img-placeholder slot with an IMG/... (replace) label; swap it
+   for a real <img> in each case page once photography arrives.
    ============================================================ */
 .cs-hero-media {
   padding-bottom: var(--space-18); /* 80px */
@@ -127,7 +144,11 @@
   color: var(--text-secondary);
 }
 
-/* Specs sidebar card */
+/* Specs sidebar card: the light card (--bg-surface) in the right
+   column of the overview grid; it stacks under the copy below 1024px.
+   How to edit: each fact is a .cs-spec (uppercase label + value) in
+   the page HTML; rows separate themselves via the border-top rule
+   below, so just add or remove .cs-spec blocks. */
 .cs-specs {
   background: var(--bg-surface);
   border-radius: var(--radius-2xl);
@@ -195,6 +216,10 @@
   gap: 14px;
   align-items: flex-start;
 }
+/* Kicker row. Kickers read "The challenge" / "The process" /
+   "The result" with NO 01/02/03 numbering: the numbers existed once
+   and were deliberately removed (commit c002e11), do not re-add a
+   number span here or in the HTML. */
 .cs-story-block__top {
   display: flex;
   align-items: center;
@@ -230,7 +255,13 @@
 }
 
 /* ============================================================
-   Next case navigation
+   Next case navigation (prev left, next right)
+   The five case pages form a wrap-around chain via hard-coded
+   relative hrefs in each page's HTML:
+   dental-cobalt-chrome-prosthesis > bent-stainless-tube >
+   weld-joint-automotive-part > watch-cases > custom-alloy-electrolyte
+   > back to dental. Adding or removing a case means re-linking BOTH
+   neighbours so the loop stays closed.
    ============================================================ */
 .cs-nextcase {
   border-top: 1px solid var(--border);

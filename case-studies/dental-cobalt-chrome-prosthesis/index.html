@@ -27,7 +27,46 @@
 </head>
 <body>
 
+  <!--
+    CASE STUDY PAGE, TEMPLATE REFERENCE (dental cobalt-chrome prosthesis).
+
+    One of five instances of the case study template. Page-specific layout
+    lives in assets/css/pages/case-study.css; header, footer, CTA band and
+    partners strip are shared components from assets/css/components.css.
+    All hrefs and asset paths use ../../ prefixes because this file sits
+    two folders below the site root.
+
+    There is no build step, so the header and footer are literal copies on
+    every page. A nav change made here must be repeated on all pages sitewide.
+
+    This dental page is the ONLY case with real, approved copy. The other
+    four (bent-stainless-tube, weld-joint-automotive-part, watch-cases,
+    custom-alloy-electrolyte) carry [Placeholder] text awaiting client input
+    and point back to this header comment for editing notes.
+
+    The "Next case" nav near the bottom forms a wrap-around chain across the
+    five cases in home-page order:
+      dental > tube > weld > watch > electrolyte > back to dental.
+
+    HOW TO ADD A NEW CASE:
+    1. Copy one of the five folders under /case-studies/ to a new slug folder
+       (this page is the most complete example).
+    2. Update <title>, meta description, canonical URL, breadcrumb text, hero
+       eyebrow/title/intro, the overview, the specs list and the three story
+       blocks (challenge / process / result).
+    3. Splice it into the prev/next chain: set the new page's own prev and
+       next links, then fix the two neighbours, the case before it gets a new
+       "Next case" href/title and the case after it a new "Previous case" one.
+    4. Add a .case-item block to the home list (index.html #case-studies)
+       with its data-image attribute and Read more href, so the spotlight
+       hover swap keeps working (wired in assets/js/main.js).
+
+    Page map: Header / Breadcrumb / Hero / Hero media / Overview + Specs /
+    Story (3 blocks) / Next case / CTA band / Partners / Footer / Cookie banner.
+  -->
+
   <!-- ============================== Header ============================== -->
+  <!-- Copied verbatim on every page: any change to links here must be repeated sitewide, header and footer both. -->
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="site-header__logo" href="../../index.html" aria-label="Swiss Plasma Polishing home">
@@ -84,6 +123,7 @@
     </section>
 
     <!-- ============================== Hero media ============================== -->
+    <!-- Image slot: when client photos arrive, replace the img-placeholder div with a real <img> (WebP via scripts/convert-images.sh); the IMG/... (replace) label marks every such slot. -->
     <section class="cs-hero-media" aria-label="Case hero image">
       <div class="container">
         <div class="img-placeholder cs-hero-media__img">
@@ -212,6 +252,7 @@
     </section>
 
     <!-- ============================== Next case ============================== -->
+    <!-- Chain position: prev = custom-alloy-electrolyte, next = bent-stainless-tube. Wrap-around, see HOW TO ADD A NEW CASE in the header comment before rewiring. -->
     <nav class="cs-nextcase" aria-label="More case studies">
       <div class="container">
         <div class="cs-nextcase__row">

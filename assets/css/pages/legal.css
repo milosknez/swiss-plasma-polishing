@@ -1,6 +1,17 @@
-/* SPP legal pages: shared prose template for Impressum, Privacy, Terms.
-   Single narrow column of a heading block, a hairline and stacked sections.
-   Reuses shared tokens and classes; only the layout below is page-specific. */
+/* ============================================================
+   legal.css - one stylesheet shared by three pages: /impressum/,
+   /privacy/ and /terms/. Shared prose template: a single narrow
+   820px column of a heading block, a hairline and stacked sections.
+   Reuses shared tokens and classes from tokens.css/base.css/
+   components.css; only the layout below is page-specific. All
+   classes prefixed legal- to avoid collisions.
+   Copy note: body text on these pages is [Placeholder] awaiting the
+   client's real legal text; swapping it happens in the three page
+   HTML files, this CSS should rarely need to change.
+   How to edit: add a section by duplicating a .legal-section block
+   (title + body) in the page HTML; the column gap spaces it
+   automatically. Impressum contact facts use .legal-row instead.
+   ============================================================ */
 
 /* Body wrapper. Figma: pt 110px, pb 120px, centered narrow column. */
 .legal-body {
@@ -83,7 +94,9 @@
   text-underline-offset: 3px;
 }
 
-/* Impressum info row: mono label + primary value. Figma gap 6px. */
+/* Impressum info row: small uppercase label + primary value. Figma gap
+   6px. The label was mono in an early design; IBM Plex Mono was removed
+   sitewide, so it is Inter (--font-body) now, never switch it back. */
 .legal-row {
   display: flex;
   flex-direction: column;

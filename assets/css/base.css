@@ -1,4 +1,13 @@
-/* SPP base styles: reset, typography, layout primitives. */
+/* ==== SPP base styles ====
+   Sitewide primitives, loaded on every page after tokens.css and before
+   components.css. Blocks in this file, top to bottom: reset, typography
+   primitives, buttons, section heading block, image placeholder,
+   utilities, responsive heading scale, motion.
+
+   Two-font system: Switzer (Fontshare CDN) for headings only, via
+   .display / .h1-.h6 / .card-title; Inter (Google Fonts) for everything
+   else, inherited from body. IBM Plex Mono was deliberately removed
+   sitewide by the designer, never reintroduce it. */
 
 /* ---- Reset ---- */
 *,
@@ -12,7 +21,9 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
-  scroll-padding-top: 103px; /* sticky header height */
+  scroll-padding-top: 103px; /* sticky header height: keeps smooth anchor
+     scrolls from landing under the fixed bar. If the header height changes
+     in components.css, update this value (and :target below) to match. */
 }
 
 body {
@@ -59,10 +70,16 @@ ol {
   list-style: none;
 }
 
+/* Extra anchor offset, slightly larger than the 103px header for
+   breathing room when a section is jumped to by fragment link. */
 :target {
   scroll-margin-top: 120px;
 }
 
+/* Reduced motion: disable smooth scrolling and collapse all animation and
+   transition times to near zero. The motion block at the bottom of this
+   file is additionally gated behind no-preference, this rule is the
+   belt-and-braces catch-all for everything else. */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -78,7 +95,9 @@ ol {
 
 /* ---- Typography primitives ---- */
 /* Headings use Switzer. Semibold (600) for display + section titles,
-   Medium (500) for card titles. */
+   Medium (500) for card titles. These classes are the ONLY place Switzer
+   is applied; all other text inherits Inter from body. Sizes come from
+   the --type-* tokens in tokens.css, edit them there. */
 .display {
   font-family: var(--font-display);
   font-weight: 600;
@@ -176,7 +195,10 @@ ol {
   color: var(--accent);
 }
 
-/* Small uppercase label (CASE STUDIES, SUPPORTED BY, chips). Inter. */
+/* Small uppercase label (CASE STUDIES, SUPPORTED BY, chips). Inter.
+   The class NAME is historical: it was IBM Plex Mono before mono was
+   removed sitewide. It renders Inter now. Keep the name so existing
+   markup keeps working, and never point it back at a mono font. */
 .mono-label {
   font-family: var(--font-body);
   font-weight: 500;
@@ -187,7 +209,10 @@ ol {
   color: var(--text-muted);
 }
 
-/* ---- Buttons ---- */
+/* ---- Buttons ----
+   .btn is the shared shell; combine with .btn--primary or .btn--secondary
+   (and optionally .btn--block). Disabled styling responds to both the
+   [disabled] attribute and aria-disabled="true". */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -266,7 +291,13 @@ ol {
   margin-inline: 0;
 }
 
-/* ---- Image placeholder (until client supplies real photos) ---- */
+/* ---- Image placeholder (until client supplies real photos) ----
+   Convention: a striped block with an "IMG/... (replace)" label marks a
+   slot awaiting real photography (current images are Figma exports). To
+   swap in a real photo, replace the placeholder element in the HTML with
+   an <img> (WebP, run through scripts/convert-images.sh) and remove the
+   __label span. Leave these rules in place while any slot still uses
+   the placeholder. */
 .img-placeholder {
   position: relative;
   display: flex;
@@ -295,7 +326,10 @@ ol {
   border-radius: var(--radius-md);
 }
 
-/* ---- Utilities ---- */
+/* ---- Utilities ----
+   .visually-hidden keeps text available to screen readers while hiding
+   it visually. Currently unused in the markup; kept for icon-only
+   controls or skip links when they are added. */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -308,7 +342,9 @@ ol {
   border: 0;
 }
 
-/* Responsive heading scale */
+/* Responsive heading scale. Desktop sizes come from tokens.css; these
+   phone overrides are hand-tuned here, so a token change alone will not
+   move headings below 768px. */
 @media (max-width: 768px) {
   .display { font-size: clamp(34px, 9vw, 42px); letter-spacing: -1px; }
   .h1 { font-size: clamp(30px, 8vw, 36px); }
@@ -321,7 +357,12 @@ ol {
    Subtle and cheap (opacity/transform only). Everything sits behind
    prefers-reduced-motion: no-preference, so reduced-motion users see
    the page fully static and nothing is ever hidden without JS
-   (.reveal is added by main.js before first paint). */
+   (.reveal is added by main.js before first paint).
+   No-JS guarantee: because ONLY main.js adds .reveal, a broken or
+   blocked script means no element ever gets the hidden start state,
+   the page just renders without the effect. Per-element stagger comes
+   from the --reveal-delay custom property, set inline in the HTML
+   (e.g. style="--reveal-delay: 120ms"). */
 @media (prefers-reduced-motion: no-preference) {
   /* Hero entrance: eyebrow, headline, subhead, CTAs rise in sequence. */
   .hero__copy-wrap > * {

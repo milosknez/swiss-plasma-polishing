@@ -1,13 +1,24 @@
-/* SPP design tokens. Generated from STYLE_GUIDE.md. */
+/* ==== SPP design tokens ====
+   Generated from STYLE_GUIDE.md. Single source of truth for colors,
+   typography, spacing, radius and shadows across the whole site.
+   Load order on every page: tokens.css first, then base.css, then
+   components.css, then the page stylesheet, so everything downstream
+   can rely on these custom properties.
+
+   How to edit: change values HERE and every page updates. Never hardcode
+   hex colors or px sizes in component or page CSS, reference a token.
+   Beware: using a token name that does not exist in this file is NOT an
+   error in CSS, the declaration silently computes to its initial value
+   (usually 0), so always copy names from this file. */
 
 :root {
-  /* Colors — text */
+  /* Colors - text */
   --text-primary: #161b21;
   --text-secondary: #5e6c7a;
   --text-muted: #9aa6b1;
   --text-on-dark: #ffffff;
 
-  /* Colors — accent (steel-blue) */
+  /* Colors - accent (steel-blue) */
   --accent: #4c748c;
   --accent-hover: #3f6478;
   --accent-active: #365668;
@@ -16,15 +27,15 @@
   --accent-light: #d3e2ee;
   --accent-soft: #eaf1f7;
 
-  /* Colors — backgrounds */
+  /* Colors - backgrounds */
   --bg-page: #ffffff;
   --bg-surface: #eaf1f7;
   --bg-emphasis: #d3e2ee;
 
-  /* Colors — backgrounds (extra surface tint used in Figma) */
+  /* Colors - backgrounds (extra surface tint used in Figma) */
   --bg-surface-2: #e7edf1; /* partners, media placeholders */
 
-  /* Colors — borders */
+  /* Colors - borders */
   --border-subtle: #eef2f5;
   --border: #dde4e9;
   --border-strong: #d2dbe1;
@@ -33,7 +44,7 @@
   --border-check: #b3bfc8;  /* checkbox */
   --placeholder: #9aa4ae;   /* input placeholder */
 
-  /* Colors — status (reserved) */
+  /* Colors - status (reserved) */
   --success: #3d7350;
   --warning: #cc8a1f;
   --danger: #b04438;
@@ -42,7 +53,11 @@
   --font-display: "Switzer", "Manrope", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
 
-  /* Type scale (px values; convert to rem in component CSS if preferred) */
+  /* Type scale (px values; convert to rem in component CSS if preferred).
+     The --type-mono-* names are historical: IBM Plex Mono was removed
+     sitewide, these sizes now render in Inter (see .mono-label and
+     .img-placeholder__label in base.css). Keep the names so existing
+     rules keep resolving. */
   --type-display: 60px;
   --type-h1: 50px;
   --type-h2: 52px;
@@ -59,7 +74,13 @@
   --type-ui: 14px;
   --type-button: 16px;
 
-  /* Spacing scale, multiples of 4 */
+  /* Spacing scale, multiples of 4.
+     NAMING GOTCHA: names run 1..10, then jump to 12,14,16,18,20,24,26,28,
+     and above --space-10 the px value is NOT name*4. Examples: --space-14
+     is 64px, --space-16 is 72px, --space-18 is 80px, --space-28 is 120px.
+     Always copy an existing name from this list; a token that is not
+     defined here (say --space-15) silently resolves to 0, there is no
+     error or console warning. */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -100,7 +121,11 @@
 /* Container helper.
    content-box so max-width applies to the CONTENT (1200px), with the horizontal
    padding sitting OUTSIDE it. At a 1440 viewport this yields exactly 1200px of
-   content with 120px gutters, matching the Figma frame. */
+   content with 120px gutters, matching the Figma frame.
+   WARNING: the global reset in base.css makes everything else border-box.
+   Do not "fix" this rule back to border-box, the gutters would then eat
+   into the 1200px and every section on the site would render narrower
+   than the Figma 1200 grid. */
 .container {
   box-sizing: content-box;
   max-width: var(--container-max);
@@ -108,7 +133,9 @@
   padding-inline: clamp(20px, 5vw, var(--space-28));
 }
 
-/* Section base spacing */
+/* Section base spacing. Default vertical rhythm for top-level page
+   sections, stepped down for tablet and phone below. Prefer overriding
+   per page in assets/css/pages/*.css rather than editing these. */
 .section {
   padding-block: var(--space-26);
 }
@@ -119,7 +146,8 @@
   .section { padding-block: var(--space-10); }
 }
 
-/* Focus ring */
+/* Focus ring. Keyboard-only (:focus-visible) outline shared by every
+   interactive element sitewide, kept for accessibility. */
 :where(a, button, input, textarea, select):focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;

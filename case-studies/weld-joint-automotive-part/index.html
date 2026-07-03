@@ -27,6 +27,19 @@
 </head>
 <body>
 
+  <!--
+    CASE STUDY PAGE, template instance (weld joint on an automotive part).
+    Styles in assets/css/pages/case-study.css plus shared components.css;
+    all paths use ../../ prefixes (two folders below the root). Header and
+    footer are copies, edit nav on all pages sitewide. Copy here is
+    [Placeholder] awaiting the client; only the dental page has real text.
+    Prev/next links form a wrap-around chain in home-page order
+    (dental > tube > weld > watch > electrolyte); this page sits between
+    tube (prev) and watch (next).
+    How to add a new case: see the header comment in
+    ../dental-cobalt-chrome-prosthesis/index.html (the template reference).
+  -->
+
   <!-- ============================== Header ============================== -->
   <header class="site-header">
     <div class="container site-header__inner">
@@ -200,6 +213,7 @@
     </section>
 
     <!-- ============================== Next case ============================== -->
+    <!-- Chain position: prev = bent-stainless-tube, next = watch-cases. Keep hrefs and visible titles in sync when splicing a new case. -->
     <nav class="cs-nextcase" aria-label="More case studies">
       <div class="container">
         <div class="cs-nextcase__row">

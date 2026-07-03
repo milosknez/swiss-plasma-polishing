@@ -1,8 +1,43 @@
-/* SPP components: header, sections, footer. Layout values mirror the Figma "SPP — Home" frame. */
+/* ============================================================
+   components.css - shared components and page sections
+   ============================================================
+   Every section that appears across the site lives in this file.
+   Design tokens (colors, spacing, type scale) come from tokens.css;
+   element resets and primitives (.container, .section, buttons,
+   .eyebrow, .section-head) live in base.css; page-only styles live
+   in assets/css/pages/ (one file per page). No build step: pushing to
+   main redeploys the live site via GitHub Pages in about a minute.
+
+   Fonts: Switzer for headings (var(--font-display)), Inter for
+   everything else (var(--font-body)). IBM Plex Mono was removed
+   sitewide by the designer, never reintroduce it.
+
+   Table of contents (in file order):
+     1. Header (sticky bar + mobile nav)
+     2. Hero (capped 1440px composition + photo overlay)
+     3. Technology (alternating rows + before/after slider)
+     4. Case Studies spotlight (accordion + crossfading photo)
+     5. Applications (white cards + materials pills)
+     6. Contact (details, map, form card, custom checkbox)
+     7. Partners (logo strip)
+     8. Footer
+     9. Cookie banner
+
+   Interactive behavior (nav toggle, slider drag, accordion, form
+   tabs and submit, cookie dismiss) is in assets/js/main.js; the CSS
+   here only reacts to the attributes and custom properties that
+   script sets (data-open, aria-expanded, aria-selected, data-state,
+   --pos, [hidden]).
+
+   Layout values mirror the Figma "SPP - Home" frame. */
 
 /* ============================================================
    Header
-   ============================================================ */
+   ============================================================
+   Sticky top bar, identical markup on every page. How to edit:
+   nav links are plain HTML inside <header> on EVERY page, so a
+   nav change must be repeated across all pages (no includes,
+   there is no build step). */
 .site-header {
   position: sticky;
   top: 0;
@@ -15,8 +50,12 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-9);
-  /* No min-height: .container is content-box, so 103px would ADD to the
-     18px paddings. Logo 67px + 2x18px = exactly Figma's 103px header. */
+  /* No min-height ON PURPOSE: .container is content-box, so a 103px
+     min-height would ADD to the 18px paddings and inflate the bar (this
+     bug shipped once, do not reintroduce it). The height comes out of
+     the content: 67px logo + 2x18px padding = exactly Figma's 103px.
+     The mobile nav dropdown below pins itself at inset 103px to match,
+     keep the two in sync if the header height ever changes. */
   padding-block: 18px;
 }
 .site-header__logo {
@@ -45,7 +84,9 @@
   color: var(--accent);
 }
 
-/* Mobile nav toggle */
+/* Mobile nav toggle: hamburger drawn from one span plus its two pseudo
+   elements. main.js flips data-open on .site-nav and aria-expanded on
+   this button; the dropdown styling lives in the 1024px block below. */
 .nav-toggle {
   display: none;
   width: 44px;
@@ -72,7 +113,7 @@
   .nav-toggle { display: inline-flex; }
   .site-nav {
     position: absolute;
-    inset: 103px 0 auto 0;
+    inset: 103px 0 auto 0; /* 103px = header height, see the header note above */
     flex-direction: column;
     align-items: stretch;
     gap: var(--space-5);
@@ -101,7 +142,11 @@
 
 /* ============================================================
    Hero
-   ============================================================ */
+   ============================================================
+   Two-column grid: copy on the left, full-height photo on the
+   right. The photo is a Figma placeholder export (marked with the
+   IMG/... (replace) convention in index.html), swap the <img>
+   there when the client sends real photography. */
 .hero {
   /* Figma: white page with a soft steel-blue wash from the bottom-left. */
   background-color: var(--bg-page);
@@ -194,7 +239,9 @@
   height: 100%;
   object-fit: cover;
 }
-/* Figma 451:212: dark bottom gradient over the hero photo. */
+/* Figma 451:212: dark bottom gradient over the hero photo. It lives on
+   ::after (not baked into the image), so it survives a photo swap, keep
+   it when replacing the placeholder. */
 .hero__media::after {
   content: "";
   position: absolute;
@@ -219,7 +266,11 @@
 
 /* ============================================================
    Technology
-   ============================================================ */
+   ============================================================
+   Alternating text/media rows (.tech-row, .tech-row--reverse
+   flips the columns) plus the before/after slider further down.
+   Row copy lives in index.html; media slots are placeholder
+   Figma exports until real photos arrive. */
 .technology {
   background: var(--bg-page);
 }
@@ -306,7 +357,11 @@
   margin-top: var(--space-2);
 }
 
-/* Before / after comparison slider (Figma 465:12), draggable via --pos. */
+/* Before / after comparison slider (Figma 465:12), draggable via --pos.
+   The whole widget is driven by the --pos custom property (a percentage,
+   default 50%): main.js updates it on pointer drag and on arrow keys via
+   the handle. The divider and handle sit at left: var(--pos), and the
+   before layer is revealed by the clip-path below, nothing else moves. */
 .ba-slider {
   position: relative;
   height: 400px;
@@ -330,12 +385,14 @@
   object-fit: cover;
   pointer-events: none;
 }
+/* Clip the before layer to everything left of the handle position. */
 .ba-slider__layer--before {
   clip-path: inset(0 calc(100% - var(--pos)) 0 0);
 }
 /* Placeholder treatment until the client sends a true before/after pair:
    the same photo is used on both sides (as in Figma), so the "before" side
-   is desaturated to make the comparison visible while dragging. */
+   is desaturated to make the comparison visible while dragging. DELETE this
+   filter rule once real before and after photos are in place. */
 .ba-slider__layer--before img {
   filter: grayscale(0.9) brightness(0.95) contrast(0.92);
 }
@@ -393,8 +450,16 @@
 }
 
 /* ============================================================
-   Case Studies — Split Spotlight
-   ============================================================ */
+   Case Studies - Split Spotlight
+   ============================================================
+   Accordion of case rows (one open at a time) next to one large
+   photo. main.js sets aria-expanded on the active .case-item and
+   swaps the photo from that row's data-image attribute; ALL of
+   the expanded-card styling below keys off aria-expanded, there
+   is no separate "active" class. How to add a case study: add a
+   .case-item row in index.html (with data-image), main.js picks
+   it up automatically; 4 of 5 case study pages still carry
+   [Placeholder] copy awaiting client text. */
 .spotlight {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -412,6 +477,9 @@
   object-fit: cover;
 }
 .spotlight__image img {
+  /* Crossfade when the active case changes: main.js drops opacity to 0,
+     waits these 180ms, swaps src, then restores opacity. Keep the JS
+     timeout and this duration in sync. */
   transition: opacity 180ms ease; /* crossfade when the active case changes */
 }
 .spotlight__panel {
@@ -479,6 +547,7 @@
   flex-shrink: 0;
   transition: transform 150ms ease;
 }
+/* Expanded card: white surface lifted off the gray panel. */
 .case-item[aria-expanded="true"] {
   background: #fff;
   border: 1px solid var(--border);
@@ -488,7 +557,10 @@
 .case-item[aria-expanded="true"] .case-item__head {
   padding: var(--space-6) var(--space-6) 0; /* Figma card: p-24 */
 }
-/* Figma renders no arrow on collapsed rows (empty icon slot). */
+/* Figma renders no arrow on collapsed rows (empty icon slot), and the
+   expanded card hides it too (rule further down), so the arrow markup is
+   currently never visible; it stays in the HTML in case the design
+   changes its mind. */
 .case-item:not([aria-expanded="true"]) .case-item__arrow {
   display: none;
 }
@@ -515,7 +587,9 @@
 
 /* ============================================================
    Applications
-   ============================================================ */
+   ============================================================
+   2x2 grid of white numbered cards plus the materials pill
+   strip. Card copy is edited directly in index.html. */
 .applications {
   background: var(--bg-page);
   border-top: 1px solid #ededed; /* Figma 473:2 */
@@ -526,6 +600,10 @@
   gap: var(--space-6);
   margin-top: 60px; /* Figma: heading-to-grid gap */
 }
+/* White card on the white page, defined by border + soft shadow. All four
+   cards share this shadow ON PURPOSE: the Figma file misses it on the
+   second card, that is a Figma omission, not a design cue, do not remove
+   it from one card to "match". */
 .app-cell {
   background: #fff;
   border: 1px solid var(--border-card);
@@ -596,12 +674,20 @@
 
 /* ============================================================
    Contact
-   ============================================================ */
+   ============================================================
+   Details column (icon rows + map) next to the tabbed form card.
+   The form is NOT wired to a backend yet: main.js intercepts
+   submit and shows the thank-you state only. The endpoint
+   (Formspree or Web3Forms) is a pending client decision; wire it
+   in main.js when decided, nothing here needs to change. */
 .contact {
   background: var(--bg-page);
   padding-block: 110px; /* Figma 451:375: py-110, not the shared 112 */
 }
-/* Scoped heading overrides (Figma contact heading differs from other sections). */
+/* Scoped heading overrides (Figma contact heading differs from other
+   sections): 48px title instead of the shared h2 size, and the intro is
+   capped at 460px specifically so it wraps to two lines. These are
+   deliberate, do not normalize them to the shared section-head styles. */
 .contact .section-head {
   gap: 14px;
 }
@@ -651,13 +737,16 @@
   font-size: 12px;
   letter-spacing: normal;
   text-transform: uppercase;
+  /* Verbatim Figma value. This warm gray (and #2a2622 below) sits OUTSIDE
+     the token palette on purpose: the tokens are cool steel grays, the
+     contact details are warm by design, do not swap in a token. */
   color: #635f5b; /* verbatim Figma value */
 }
 .contact-detail__value {
   font-family: var(--font-body);
   font-weight: 500;
   font-size: 18px;
-  color: #2a2622; /* verbatim Figma value */
+  color: #2a2622; /* verbatim Figma value, warm near-black, outside the token palette on purpose */
 }
 .contact__map {
   position: relative;
@@ -685,6 +774,9 @@
   flex-direction: column;
   gap: var(--space-5);
 }
+/* Contact / Request-a-quote tab switch. main.js moves aria-selected
+   between the two buttons and flips the hidden attribute on the matching
+   .form-body panels (linked via aria-controls). */
 .form-toggle {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -818,6 +910,9 @@
   outline: none;
   border-color: var(--accent);
 }
+/* Consent checkbox: native appearance is removed and the box plus tick
+   are drawn in CSS (the checked ::after below is the checkmark), so it
+   matches Figma exactly across browsers. */
 .check {
   display: flex;
   align-items: center;
@@ -859,6 +954,9 @@
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+/* Post-submit thank-you state. There is no backend yet: main.js prevents
+   the default submit and sets data-state="success" on the card, which
+   hides the form and shows this block via the two rules below. */
 .form-card__success {
   display: none;
   flex-direction: column;
@@ -879,7 +977,10 @@
 
 /* ============================================================
    Partners
-   ============================================================ */
+   ============================================================
+   Centered logo strip. Logos are WebP placeholders converted at
+   q90 by scripts/convert-images.sh; add a new partner by adding
+   an <img class="partner-logo"> in the HTML. */
 .partners {
   background: var(--bg-surface-2);
   text-align: center;
@@ -887,7 +988,9 @@
 }
 .partners__label {
   display: block;
-  /* Inter, not mono (overrides the .mono-label class on the same element). */
+  /* Inter, not mono, BY DESIGN: this overrides the historical .mono-label
+     class still on the element. IBM Plex Mono was removed sitewide, do
+     not bring it back here. */
   font-family: var(--font-body);
   font-weight: 500;
   font-size: 12px;
@@ -908,14 +1011,19 @@
   object-fit: contain;
 }
 .partner-logo[src*="partner-bridge"] {
-  height: 34.65px; /* Figma 482:1247: 132x34.65 */
+  height: 34.65px; /* Figma 482:1247: exact 132x34.65 export, do not round */
 }
 
 /* ============================================================
    Footer
-   ============================================================ */
+   ============================================================
+   Same repeat-per-page caveat as the header: footer nav and
+   legal links are plain HTML on every page, edit all pages
+   together. */
 .site-footer {
   background: var(--bg-page);
+  /* 24px is the designer's explicit choice. Figma says 40, do not "fix"
+     it back to match the file. */
   padding-bottom: var(--space-6); /* 24px */
 }
 .site-footer hr {
@@ -968,7 +1076,11 @@
 
 /* ============================================================
    Cookie banner
-   ============================================================ */
+   ============================================================
+   Fixed pill centered above the bottom edge. It ships with the
+   hidden attribute in the HTML; main.js reveals it only when no
+   consent flag is in localStorage and hides it again on accept.
+   The [hidden] rule below is what actually removes it. */
 .cookie-banner {
   position: fixed;
   left: 50%;

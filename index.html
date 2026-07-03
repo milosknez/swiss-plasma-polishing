@@ -26,7 +26,35 @@
 </head>
 <body data-animate>
 
+  <!--
+    Homepage (index.html). Page map: Header, Hero, Technology (with the
+    before/after slider), Case Studies spotlight, Applications, Contact (two
+    form tabs), Partners, Footer, Cookie banner. All behaviour lives in
+    assets/js/main.js, shared styles in assets/css/components.css, design
+    tokens in assets/css/tokens.css. No build step: edit, push to main,
+    GitHub Pages redeploys in about a minute.
+
+    Editing notes:
+    - body[data-animate] opts this page into scroll reveals (IntersectionObserver
+      in main.js). Remove the attribute to disable the animations entirely.
+    - Case list items carry data-image, the photo swapped into the spotlight when
+      an item expands. Update those paths when per-case photos arrive. The first
+      item ships expanded (aria-expanded="true").
+    - The before/after slider uses the same photo on both layers until a real
+      before/after pair arrives (see the ba-slider note in components.css).
+    - Contact form: two forms, one per tab, General enquiry ships active. Submit
+      is not wired to a backend yet (Formspree or Web3Forms, pending client
+      decision), main.js validates and shows the thank-you state only. The
+      newsletter and privacy checkboxes exist only on the General tab by design.
+    - The materials strip in Applications is present but commented out because
+      that layer is hidden in Figma.
+    - Photos are WebP placeholders exported from Figma. Replace them via
+      scripts/convert-images.sh and keep the same filenames so no markup changes.
+  -->
+
   <!-- ============================== Header ============================== -->
+  <!-- Nav edits: change links here AND in the footer nav so they stay in sync.
+       The nav-toggle button is the mobile hamburger, wired up in main.js. -->
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="site-header__logo" href="./" aria-label="Swiss Plasma Polishing home">
@@ -52,6 +80,9 @@
 
   <main>
     <!-- ============================== Hero ============================== -->
+    <!-- Matches the Figma homepage hero frame. "Watch the process" is styled as a
+         play button but only scrolls to #technology, there is no video yet.
+         hero.webp is a placeholder export, swap when real photography arrives. -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__inner">
         <div class="hero__copy">
@@ -82,6 +113,9 @@
     </section>
 
     <!-- ============================== Technology ============================== -->
+    <!-- Alternating text/image rows. tech-row--reverse flips the visual order
+         (see components.css). The first row hosts the before/after slider,
+         drag and keyboard logic in main.js. -->
     <section class="technology section" id="technology" aria-labelledby="tech-title">
       <div class="container">
         <div class="section-head">
@@ -165,6 +199,10 @@
     </section>
 
     <!-- ============================== Case Studies (Split Spotlight) ============================== -->
+    <!-- Accordion list, expanding an item cross-fades the big spotlight image to
+         that item's data-image (main.js). To add a case: copy a .case-item block,
+         set data-image and the Read more href, and create the matching page under
+         case-studies/. 4 of 5 case pages still carry [Placeholder] copy. -->
     <section class="spotlight" id="case-studies" aria-labelledby="cases-title">
       <div class="spotlight__image">
         <img id="spotlight-img" src="assets/img/case.webp" alt="Case study: Dental cobalt-chrome prosthesis" width="720" height="771">
@@ -264,6 +302,8 @@
     </section>
 
     <!-- ============================== Applications ============================== -->
+    <!-- Four fixed cells. The 01-04 numbers are hand-written in the markup,
+         renumber them if you add or remove a cell. -->
     <section class="applications section" id="applications" aria-labelledby="apps-title">
       <div class="container">
         <div class="section-head">
@@ -317,6 +357,10 @@
     </section>
 
     <!-- ============================== Contact ============================== -->
+    <!-- Form endpoint pending (Formspree or Web3Forms, client decision). When
+         wiring it up, do it in main.js so BOTH tab forms submit; today submit only
+         validates and flips the card to the thank-you state. The map pin comes
+         from the q= address in the iframe URL, edit that string to move it. -->
     <section class="contact section" id="contact" aria-labelledby="contact-title">
       <div class="container">
         <div class="section-head">
@@ -471,6 +515,9 @@
     </section>
 
     <!-- ============================== Partners ============================== -->
+    <!-- Logo heights are set per image to optically balance the row against Figma,
+         keep the height attributes when swapping files. Logos are WebP at q90 via
+         scripts/convert-images.sh (photos use q82). -->
     <section class="partners section" id="partners" aria-label="Supported by">
       <div class="container">
         <p class="partners__label mono-label">Supported by</p>
@@ -485,6 +532,8 @@
   </main>
 
   <!-- ============================== Footer ============================== -->
+  <!-- Nav mirrors the header, update both together. The legal pages linked at the
+       bottom (impressum, privacy, terms) still carry [Placeholder] client copy. -->
   <footer class="site-footer">
     <div class="container">
       <hr>
@@ -513,6 +562,8 @@
   </footer>
 
   <!-- ============================== Cookie banner (essential-only) ============================== -->
+  <!-- Ships hidden; main.js reveals it unless localStorage "spp-cookie-ack" is set.
+       Essential cookies only and no trackers, so a single accept button is enough. -->
   <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie notice" hidden>
     <p class="cookie-banner__text">
       We use essential cookies only to make this site work. No tracking by default.

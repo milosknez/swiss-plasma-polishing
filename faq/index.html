@@ -26,7 +26,24 @@
 </head>
 <body>
 
+  <!--
+    PAGE MAP: FAQ page (/faq/). Sections: Header, Intro / mini hero, FAQ accordion,
+    CTA band, Footer, Cookie banner.
+    Loads assets/css/pages/faq.css on top of the shared tokens/base/components stylesheets.
+
+    EDITING NOTES:
+    - Header, footer and cookie banner are copied from index.html with ../ path prefixes.
+      There is NO templating: when the navigation changes, edit it by hand in ALL pages
+      (index.html, about, faq, impressum, privacy, terms) and in both header and footer.
+    - The accordion is native <details>/<summary>, no JavaScript involved. The first item
+      carries the open attribute so the page never renders fully collapsed.
+    - Answers are plain <p> tags inside .faq-item__body. How to edit: add a question by
+      copying an entire <details class="faq-item"> block (chevron SVG included) and
+      changing the question and answer text.
+  -->
+
   <!-- ============================== Header ============================== -->
+  <!-- Shared header, keep in sync with index.html. Mobile toggle is wired in ../assets/js/main.js via #site-nav. -->
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="site-header__logo" href="../index.html" aria-label="Swiss Plasma Polishing home">
@@ -63,6 +80,9 @@
     </section>
 
     <!-- ============================== FAQ accordion ============================== -->
+    <!-- Pure HTML accordion: each item is a <details> with the question in <summary>.
+         The chevron rotation on open is handled in faq.css via details[open].
+         Only the first item has the open attribute, keep it that way when reordering. -->
     <section class="faq-section" aria-label="Questions and answers">
       <div class="container">
         <div class="faq-list">
@@ -168,6 +188,7 @@
     </section>
 
     <!-- ============================== CTA band ============================== -->
+    <!-- Button points at the home contact form, there is no contact page. -->
     <section class="faq-cta" aria-labelledby="faq-cta-title">
       <div class="container">
         <div class="faq-cta__inner">
@@ -180,6 +201,7 @@
   </main>
 
   <!-- ============================== Footer ============================== -->
+  <!-- Shared footer, keep in sync with index.html. Footer nav mirrors the header nav, edit both together. -->
   <footer class="site-footer">
     <div class="container">
       <hr>
@@ -208,6 +230,7 @@
   </footer>
 
   <!-- ============================== Cookie banner (essential-only) ============================== -->
+  <!-- Starts hidden; main.js unhides it unless localStorage key "spp-cookie-ack" is set. Keep the hidden attribute. -->
   <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie notice" hidden>
     <p class="cookie-banner__text">
       We use essential cookies only to make this site work. No tracking by default.

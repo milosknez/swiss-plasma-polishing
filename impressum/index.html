@@ -26,7 +26,23 @@
 </head>
 <body>
 
+  <!--
+    PAGE MAP: Impressum, legal notice (/impressum/). Sections: Header, Legal body
+    (mini hero, company detail rows, Disclaimer, Copyright), Footer, Cookie banner.
+    Loads assets/css/pages/legal.css on top of the shared tokens/base/components stylesheets.
+    Same legal template as /privacy/ and /terms/, keep structural changes in sync across the three.
+
+    EDITING NOTES:
+    - Header, footer and cookie banner are copied from index.html with ../ path prefixes.
+      There is NO templating: when the navigation changes, edit it by hand in ALL pages
+      (index.html, about, faq, impressum, privacy, terms) and in both header and footer.
+    - All bracketed values and [Placeholder] copy await the client's legal text, swap the
+      text only, keep the .legal-row / .legal-section markup.
+    - No CTA band and no Partners strip on legal pages, that is by design, do not add them.
+  -->
+
   <!-- ============================== Header ============================== -->
+  <!-- Shared header, keep in sync with index.html. Mobile toggle is wired in ../assets/js/main.js via #site-nav. -->
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="site-header__logo" href="../index.html" aria-label="Swiss Plasma Polishing home">
@@ -65,7 +81,8 @@
 
           <hr class="legal-rule">
 
-          <!-- Company details -->
+          <!-- Company details: label/value pairs. How to edit: fill the bracketed values,
+               add a row by copying one .legal-row block. -->
           <div class="legal-row">
             <p class="legal-row__label">Company</p>
             <p class="legal-row__value">[Legal entity name, e.g. Swiss Plasma Polishing AG]</p>
@@ -128,6 +145,7 @@
   </main>
 
   <!-- ============================== Footer ============================== -->
+  <!-- Shared footer, keep in sync with index.html. Footer nav mirrors the header nav, edit both together. -->
   <footer class="site-footer">
     <div class="container">
       <hr>
@@ -156,6 +174,7 @@
   </footer>
 
   <!-- ============================== Cookie banner (essential-only) ============================== -->
+  <!-- Starts hidden; main.js unhides it unless localStorage key "spp-cookie-ack" is set. Keep the hidden attribute. -->
   <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie notice" hidden>
     <p class="cookie-banner__text">
       We use essential cookies only to make this site work. No tracking by default.

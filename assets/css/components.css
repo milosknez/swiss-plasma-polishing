@@ -446,7 +446,9 @@
     gap: var(--space-9);
     margin-top: var(--space-12);
   }
-  .tech-row--reverse .tech-row__media { order: 0; }
+  /* Stacked rows always show the image FIRST, then the text (designer's
+     call for mobile), regardless of the desktop DOM/visual order. */
+  .tech-row__media { order: -1; }
 }
 
 /* ============================================================
@@ -893,7 +895,21 @@
   flex-shrink: 0;
 }
 
+/* Small screens: the 40px card padding is too heavy, step it down so the
+   fields keep a usable width on narrow phones. Everything else in the
+   form already stacks (field rows collapse to one column below). */
+@media (max-width: 768px) {
+  .form-card {
+    padding: var(--space-7); /* 28px */
+  }
+}
 @media (max-width: 480px) {
+  .form-card {
+    padding: var(--space-5); /* 20px */
+  }
+  .form-toggle__btn {
+    font-size: 13px; /* both tab labels fit side by side on ~320px screens */
+  }
   .field-row {
     grid-template-columns: 1fr;
   }
@@ -1025,13 +1041,47 @@
   text-transform: uppercase;
   color: #8c99a4;
 }
+/* The logos live in two identical .partners__set groups (the second is an
+   aria-hidden clone in the HTML). On desktop only the first set shows, as
+   a centered wrapping row. On phones both sets render side by side and
+   animate rightwards forever, a seamless marquee: each set slides by its
+   own full width, so when the loop restarts the clone stands exactly
+   where the original began. */
 .partners__logos {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-7);
+}
+.partners__set {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 16px 47px;
-  margin-top: var(--space-7);
+}
+.partners__set--clone {
+  display: none;
+}
+@media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .partners__logos {
+    justify-content: flex-start;
+    overflow: hidden;
+  }
+  .partners__set {
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    min-width: max-content;
+    gap: 40px;
+    padding-right: 40px; /* keeps the gap across the loop seam */
+    animation: partners-marquee 22s linear infinite;
+  }
+  .partners__set--clone {
+    display: flex;
+  }
+  @keyframes partners-marquee {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+  }
 }
 .partner-logo {
   width: auto;
@@ -1068,11 +1118,22 @@
 .site-footer__nav {
   display: flex;
   flex-wrap: wrap;
+  align-items: center; /* keeps the LinkedIn icon on the text baseline row */
   gap: 12px 28px;
   font-family: var(--font-body);
   font-weight: 500;
   font-size: var(--type-ui);
   color: var(--text-secondary);
+}
+/* LinkedIn icon, last item in the footer nav on every page. */
+.site-footer__linkedin {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-secondary);
+  transition: color 150ms ease;
+}
+.site-footer__linkedin:hover {
+  color: var(--accent);
 }
 .site-footer__nav a:hover { color: var(--accent); }
 .site-footer__bottom {

@@ -65,6 +65,7 @@
     };
     collect(".section-head");
     collect(".tech-row");
+    collect(".video-embed");
     collect(".spotlight__head");
     collect(".case-item", true);
     collect(".app-cell", true);
@@ -87,6 +88,30 @@
     revealTargets.forEach(function (el) {
       revealObserver.observe(el);
     });
+  }
+
+  /* ---- YouTube facade (Video section) ----
+     Privacy and performance: the page makes NO request to YouTube until
+     the visitor clicks play. The click swaps the facade button for a
+     youtube-nocookie.com iframe with autoplay. The video is defined by
+     the data-youtube-id attribute on .video-embed in index.html, change
+     the video there, not here. */
+  var videoFacade = document.querySelector("[data-youtube-id]");
+  if (videoFacade) {
+    var videoBtn = videoFacade.querySelector(".video-embed__button");
+    if (videoBtn) {
+      videoBtn.addEventListener("click", function () {
+        var iframe = document.createElement("iframe");
+        iframe.src = "https://www.youtube-nocookie.com/embed/" +
+          encodeURIComponent(videoFacade.getAttribute("data-youtube-id")) +
+          "?autoplay=1&rel=0";
+        iframe.title = "Swiss Plasma Polishing process video";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.setAttribute("allowfullscreen", "");
+        videoFacade.innerHTML = "";
+        videoFacade.appendChild(iframe);
+      });
+    }
   }
 
   /* ---- Before/after comparison slider ----

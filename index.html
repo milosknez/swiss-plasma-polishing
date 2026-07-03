@@ -28,8 +28,9 @@
 
   <!--
     Homepage (index.html). Page map: Header, Hero, Technology (with the
-    before/after slider), Case Studies spotlight, Applications, Contact (two
-    form tabs), Partners, Footer, Cookie banner. All behaviour lives in
+    before/after slider), Video (click-to-load YouTube embed), Case Studies
+    spotlight, Applications, Contact (two form tabs), Partners, Footer,
+    Cookie banner. All behaviour lives in
     assets/js/main.js, shared styles in assets/css/components.css, design
     tokens in assets/css/tokens.css. No build step: edit, push to main,
     GitHub Pages redeploys in about a minute.
@@ -97,7 +98,7 @@
             </p>
             <div class="hero__cta">
               <a class="btn btn--primary" href="#contact">Request Demo</a>
-              <a class="btn-play" href="#technology" aria-label="Watch the plasma process">
+              <a class="btn-play" href="#video" aria-label="Watch the plasma process">
                 <span class="btn-play__icon" aria-hidden="true">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M1.78 0v16l12.44-8z"/></svg>
                 </span>
@@ -194,6 +195,31 @@
           <div class="tech-row__media tech-row__media--overlay">
             <img class="tech-row__img" src="assets/img/jet.webp" alt="Jet Plasma Polishing finishing a targeted area of a metal part" width="520" height="400">
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== Video (YouTube embed) ============================== -->
+    <!-- Click-to-load facade: nothing from YouTube is requested until the visitor
+         clicks play, then main.js injects a youtube-nocookie.com iframe (keeps the
+         no-trackers rule and Lighthouse intact). To change the video, edit the
+         data-youtube-id attribute below. The hero "Watch the process" button
+         anchors here (#video). Designed in Figma: frame "SPP - Video (YT embed)". -->
+    <section class="video-section section" id="video" aria-labelledby="video-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">See it in action</p>
+          <h2 class="h2" id="video-title">Watch the plasma process</h2>
+          <p class="intro">See how the plasma jet finishes a real part in one clean step.</p>
+        </div>
+
+        <div class="video-embed" data-youtube-id="AYaXNKc_V6w">
+          <button class="video-embed__button" type="button" aria-label="Play the plasma process video (loads the YouTube player)">
+            <span class="video-embed__play" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4v16l14-8z"/></svg>
+            </span>
+            <span class="video-embed__label">Plays via YouTube</span>
+          </button>
         </div>
       </div>
     </section>

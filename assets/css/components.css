@@ -907,9 +907,8 @@
   .form-card {
     padding: var(--space-5); /* 20px */
   }
-  .form-toggle__btn {
-    font-size: 13px; /* both tab labels fit side by side on ~320px screens */
-  }
+  /* Toggle label size for small screens lives in the mobile pass block
+     at the end of this file (12px at 768px and below, per the mobile frame). */
   .field-row {
     grid-template-columns: 1fr;
   }
@@ -1236,6 +1235,55 @@
    block, last in the file, so these later rules win over the
    desktop values above at equal specificity. */
 @media (max-width: 768px) {
+  /* Typography from the mobile frame. Listed here, last in the file,
+     because several desktop headings carry scoped sizes (.spotlight__head
+     .h2 46px, .contact .h2 48px) that would otherwise beat the generic
+     mobile clamp in base.css and render huge on phones. */
+  .display {
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
+  .h2,
+  .technology .h2,
+  .spotlight__head .h2 {
+    font-size: 32px;
+    letter-spacing: -0.8px;
+  }
+  .video-section .h2,
+  .contact .h2 {
+    font-size: 30px;
+    letter-spacing: -0.6px;
+  }
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 1.44px;
+  }
+  .section-head .intro,
+  .contact .section-head .intro,
+  .spotlight__intro {
+    font-size: 16px;
+  }
+  .app-cell__title {
+    font-size: 20px;
+  }
+  .contact-detail__value {
+    font-size: 16px;
+  }
+  .contact-detail__label {
+    font-size: 11px;
+  }
+  .field__input,
+  .field__textarea {
+    font-size: 14px;
+  }
+  .form-toggle__btn {
+    font-size: 12px;
+  }
+  .ba-slider__tag {
+    font-size: 10px;
+    letter-spacing: 1.2px;
+  }
+
   /* Hero: tighter copy block, CTAs stacked with a 12px gap. */
   .hero__copy {
     padding-top: var(--space-10);   /* 48px */

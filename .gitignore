@@ -11,3 +11,6 @@ Thumbs.db
 
 # ShipStudio metadata
 .shipstudio/
+
+# Separate embedded repo (job-search tool), not part of the website
+career-ops/

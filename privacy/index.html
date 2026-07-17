@@ -28,7 +28,7 @@
 
   <!--
     PAGE MAP: Privacy Policy (/privacy/). Sections: Header, Legal body (mini hero,
-    numbered sections 1-8), Footer, Cookie banner.
+    numbered sections 1-11), Footer, Cookie banner.
     Loads assets/css/pages/legal.css on top of the shared tokens/base/components stylesheets.
     Same legal template as /impressum/ and /terms/, keep structural changes in sync across the three.
 
@@ -36,8 +36,10 @@
     - Header, footer and cookie banner are copied from index.html with ../ path prefixes.
       There is NO templating: when the navigation changes, edit it by hand in ALL pages
       (index.html, about, faq, impressum, privacy, terms) and in both header and footer.
-    - All [Placeholder] copy awaits the client's reviewed legal text, swap the text only,
-      keep the numbered .legal-section structure. Section 8 (Contact) is real copy already.
+    - Body copy is the client's supplied policy (last updated 2025-08-13). NOTE for review:
+      it names Wix hosting, Usercentrics consent and Google Maps; the live site is on GitHub
+      Pages with a custom cookie banner, so these third-party references need reconciling with
+      the client before launch.
     - No CTA band and no Partners strip on legal pages, that is by design, do not add them.
   -->
 
@@ -81,61 +83,116 @@
 
           <hr class="legal-rule">
 
-          <!-- Numbered policy sections. How to edit: replace each [Placeholder] paragraph with
-               reviewed legal text; add a section by copying a .legal-section block and renumbering. -->
+          <!-- Client-supplied policy copy (2025-08-13). Update the text in place;
+               add a section by copying a .legal-section block and renumbering. -->
+          <p class="legal-meta">Last updated: 13 August 2025</p>
+          <p class="legal-section__body">
+            We respect your privacy and handle your personal data in line with Swiss data protection
+            law (revDSG) and, where applicable, the EU General Data Protection Regulation (GDPR).
+          </p>
+
           <div class="legal-section">
-            <h3 class="legal-section__title">1. Data controller</h3>
+            <h3 class="legal-section__title">1. Who we are</h3>
             <p class="legal-section__body">
-              [Placeholder] Company: [legal name]. Address: Quellgasse 21, 2502 Biel/Bienne, Switzerland. Email: info@plasmapolishing.ch.
+              Swiss Plasma Polishing<br>
+              Quellgasse 21<br>
+              2502 Biel/Bienne, Switzerland<br>
+              E-mail: <a href="mailto:info@plasmapolishing.ch">info@plasmapolishing.ch</a><br>
+              Website: <a href="https://www.plasmapolishing.ch">www.plasmapolishing.ch</a>
             </p>
           </div>
 
           <div class="legal-section">
-            <h3 class="legal-section__title">2. Data we collect</h3>
+            <h3 class="legal-section__title">2. What data we collect</h3>
+            <p class="legal-section__body">We collect:</p>
+            <ul class="legal-list">
+              <li>Information you provide (name, email, phone, company, message content)</li>
+              <li>Technical details when you visit our site (IP address, browser, operating system, date/time, pages visited)</li>
+              <li>Data from third-party services we use (see below)</li>
+            </ul>
+          </div>
+
+          <div class="legal-section">
+            <h3 class="legal-section__title">3. Why we use your data</h3>
+            <p class="legal-section__body">We use your data to:</p>
+            <ul class="legal-list">
+              <li>Respond to inquiries and communicate with you</li>
+              <li>Provide and improve our services and website</li>
+              <li>Ensure security and comply with legal obligations</li>
+            </ul>
+          </div>
+
+          <div class="legal-section">
+            <h3 class="legal-section__title">4. Who receives your data</h3>
+            <p class="legal-section__body">We only share your data when necessary:</p>
+            <ul class="legal-list">
+              <li>Hosting - Wix.com Ltd., Nemal St. 40, 6350671 Tel Aviv, Israel. Our site is hosted on Google Cloud servers in the USA. Data transfers use Standard Contractual Clauses to ensure adequate protection.</li>
+              <li>Consent management - Usercentrics GmbH, Germany (manages cookie and consent preferences)</li>
+              <li>Maps - Google Ireland Limited (Google Maps)</li>
+              <li>Public authorities if required by law</li>
+            </ul>
+          </div>
+
+          <div class="legal-section">
+            <h3 class="legal-section__title">5. Google Maps</h3>
             <p class="legal-section__body">
-              [Placeholder] Describe the personal data collected, for example name, email and message content submitted through the contact form, plus technical and analytics data collected automatically.
+              We use Google Maps to display our location. When the map loads, your IP address and
+              browser details are sent to Google (possibly to the USA). This helps you find us more
+              easily.<br>
+              Google's privacy policy: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>
             </p>
           </div>
 
           <div class="legal-section">
-            <h3 class="legal-section__title">3. How we use your data</h3>
+            <h3 class="legal-section__title">6. Cookies</h3>
             <p class="legal-section__body">
-              [Placeholder] Explain the purposes, for example responding to enquiries, providing services and improving the website, and the legal basis for each.
+              We use cookies for basic website functions and to remember your preferences via
+              Usercentrics. You can change or withdraw your consent anytime via the cookie banner.
             </p>
           </div>
 
           <div class="legal-section">
-            <h3 class="legal-section__title">4. Cookies and analytics</h3>
+            <h3 class="legal-section__title">7. Retention</h3>
             <p class="legal-section__body">
-              [Placeholder] List the cookies and analytics tools in use, their purpose, and how visitors can manage or refuse them.
+              We keep personal data only as long as needed for the purposes stated or as required by
+              law, then delete or anonymise it.
             </p>
           </div>
 
           <div class="legal-section">
-            <h3 class="legal-section__title">5. Sharing and third parties</h3>
+            <h3 class="legal-section__title">8. Your rights</h3>
             <p class="legal-section__body">
-              [Placeholder] Describe any processors or third parties that receive data, for example hosting and analytics providers, and any transfers abroad.
+              You can request access, correction, deletion, restriction, or transfer of your data, and
+              withdraw consent at any time. You may also object to certain processing.
+            </p>
+            <p class="legal-section__body">
+              In Switzerland, you can contact the Federal Data Protection and Information Commissioner
+              (FDPIC). Contact: <a href="mailto:info@plasmapolishing.ch">info@plasmapolishing.ch</a>.
             </p>
           </div>
 
           <div class="legal-section">
-            <h3 class="legal-section__title">6. Data retention</h3>
+            <h3 class="legal-section__title">9. Children's privacy</h3>
             <p class="legal-section__body">
-              [Placeholder] State how long data is kept and the criteria used to determine retention periods.
+              Our website and services are not directed at anyone under the age of 16. We do not
+              knowingly collect personal data from children. If you believe a child has provided us
+              with personal data, please contact us so we can delete it.
             </p>
           </div>
 
           <div class="legal-section">
-            <h3 class="legal-section__title">7. Your rights</h3>
+            <h3 class="legal-section__title">10. Security</h3>
             <p class="legal-section__body">
-              [Placeholder] Under revDSG and GDPR, describe the rights to access, rectification, deletion, restriction, objection and data portability, and how to exercise them.
+              We protect your data with technical and organisational measures, and all data transfer
+              to our site is encrypted.
             </p>
           </div>
 
           <div class="legal-section">
-            <h3 class="legal-section__title">8. Contact</h3>
+            <h3 class="legal-section__title">11. Changes</h3>
             <p class="legal-section__body">
-              For any privacy request, contact us at <a href="mailto:info@plasmapolishing.ch">info@plasmapolishing.ch</a>.
+              We may update this policy from time to time. The latest version will always be available
+              on our website.
             </p>
           </div>
 

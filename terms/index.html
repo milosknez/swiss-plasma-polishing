@@ -28,7 +28,7 @@
 
   <!--
     PAGE MAP: Terms and Conditions (/terms/). Sections: Header, Legal body (mini hero,
-    numbered sections 1-10), Footer, Cookie banner.
+    intro, numbered sections 1-9 plus a Contact block), Footer, Cookie banner.
     Loads assets/css/pages/legal.css on top of the shared tokens/base/components stylesheets.
     Same legal template as /impressum/ and /privacy/, keep structural changes in sync across the three.
 
@@ -36,8 +36,7 @@
     - Header, footer and cookie banner are copied from index.html with ../ path prefixes.
       There is NO templating: when the navigation changes, edit it by hand in ALL pages
       (index.html, about, faq, impressum, privacy, terms) and in both header and footer.
-    - All [Placeholder] copy awaits the client's reviewed legal text, swap the text only,
-      keep the numbered .legal-section structure.
+    - Body copy is the client's supplied terms (effective August 2025); update the text in place.
     - No CTA band and no Partners strip on legal pages, that is by design, do not add them.
   -->
 
@@ -76,80 +75,111 @@
           <div class="legal-hero">
             <p class="eyebrow mono-label legal-hero__eyebrow">Legal</p>
             <h1 class="legal-hero__title">Terms &amp; Conditions</h1>
-            <p class="legal-hero__sub">The terms that apply to our services and orders.</p>
+            <p class="legal-hero__sub">The terms that apply to your use of this website.</p>
           </div>
 
           <hr class="legal-rule">
 
-          <!-- Numbered terms sections. How to edit: replace each [Placeholder] paragraph with
-               reviewed legal text; add a section by copying a .legal-section block and renumbering. -->
+          <!-- Client-supplied terms copy (effective August 2025). Update the text in place;
+               add a section by copying a .legal-section block and renumbering. -->
+          <p class="legal-meta">Effective date: August 2025</p>
+          <p class="legal-section__body">
+            These Terms &amp; Conditions govern your use of the Swiss Plasma Polishing website located
+            at <a href="https://www.plasmapolishing.ch">www.plasmapolishing.ch</a> ("Website"). By
+            accessing or using the Website, you agree to these Terms &amp; Conditions. If you do not
+            agree, please do not use the Website.
+          </p>
+
           <div class="legal-section">
-            <h3 class="legal-section__title">1. Scope</h3>
+            <h3 class="legal-section__title">1. Services</h3>
             <p class="legal-section__body">
-              [Placeholder] State that these terms apply to all quotes, orders and services provided by the company, and override conflicting customer terms.
+              Swiss Plasma Polishing provides plasma polishing in both bath and jet applications.
+              Information on the Website is for general purposes only and may change without notice.
             </p>
           </div>
 
           <div class="legal-section">
-            <h3 class="legal-section__title">2. Services</h3>
+            <h3 class="legal-section__title">2. User responsibilities</h3>
+            <ul class="legal-list">
+              <li>Provide accurate information when contacting us.</li>
+              <li>Use the Website only for lawful purposes.</li>
+              <li>Do not attempt to disrupt or compromise the security of the Website.</li>
+            </ul>
             <p class="legal-section__body">
-              [Placeholder] Describe the plasma polishing and related services covered, with scope defined per quote or order confirmation.
+              The only section where we request personal details is our contact form. How we process
+              personal data is explained in our <a href="../privacy/">Privacy Policy</a>.
             </p>
           </div>
 
           <div class="legal-section">
-            <h3 class="legal-section__title">3. Quotes and orders</h3>
+            <h3 class="legal-section__title">3. Prohibited activities</h3>
+            <p class="legal-section__body">You may not:</p>
+            <ul class="legal-list">
+              <li>Engage in spamming, hacking, or introducing malicious software.</li>
+              <li>Copy, distribute, or modify Website content without our permission.</li>
+              <li>Use the Website in a way that violates applicable laws.</li>
+            </ul>
+          </div>
+
+          <div class="legal-section">
+            <h3 class="legal-section__title">4. Intellectual property</h3>
             <p class="legal-section__body">
-              [Placeholder] Explain how quotes are issued, their validity period, and how an order becomes binding.
+              All text, images, graphics, logos, and other content on the Website are owned or
+              licensed by Swiss Plasma Polishing. You may view and print content for personal,
+              non-commercial use only. Any other use requires our prior written consent.
             </p>
           </div>
 
           <div class="legal-section">
-            <h3 class="legal-section__title">4. Prices and payment</h3>
+            <h3 class="legal-section__title">5. Liability disclaimer</h3>
             <p class="legal-section__body">
-              [Placeholder] State pricing, currency, taxes, payment terms and any late-payment conditions.
+              We make every effort to ensure the accuracy of Website content, but we do not guarantee
+              that it is complete, up-to-date, or error-free. The Website is provided "as is" without
+              warranties of any kind. To the extent permitted by law, Swiss Plasma Polishing is not
+              liable for any direct or indirect damages arising from your use of the Website or
+              reliance on its content.
             </p>
           </div>
 
           <div class="legal-section">
-            <h3 class="legal-section__title">5. Delivery and timelines</h3>
+            <h3 class="legal-section__title">6. External links</h3>
             <p class="legal-section__body">
-              [Placeholder] Describe delivery terms, lead times, shipping responsibility and the handling of delays.
+              The Website may contain links to third-party websites. We are not responsible for the
+              content or accuracy of those sites and disclaim any liability related to them.
             </p>
           </div>
 
           <div class="legal-section">
-            <h3 class="legal-section__title">6. Customer obligations</h3>
+            <h3 class="legal-section__title">7. Termination</h3>
             <p class="legal-section__body">
-              [Placeholder] Set out the customer's duties, including accurate part information and the condition of materials provided for finishing.
+              We may restrict or terminate access to the Website at our discretion, without notice, if
+              we believe a user has violated these Terms &amp; Conditions.
             </p>
           </div>
 
           <div class="legal-section">
-            <h3 class="legal-section__title">7. Warranty and liability</h3>
+            <h3 class="legal-section__title">8. Changes to these terms</h3>
             <p class="legal-section__body">
-              [Placeholder] Define the warranty on finishing results, the claims procedure, and the limits of liability.
+              We may update these Terms &amp; Conditions from time to time. The latest version will
+              always be available on our Website. Continued use of the Website after changes indicates
+              acceptance of the revised Terms.
             </p>
           </div>
 
           <div class="legal-section">
-            <h3 class="legal-section__title">8. Confidentiality</h3>
+            <h3 class="legal-section__title">9. Governing law and jurisdiction</h3>
             <p class="legal-section__body">
-              [Placeholder] State how confidential information and customer parts and designs are protected.
+              These Terms &amp; Conditions are governed by the laws of Switzerland. The place of
+              jurisdiction is Bern, Switzerland.
             </p>
           </div>
 
           <div class="legal-section">
-            <h3 class="legal-section__title">9. Intellectual property</h3>
+            <h3 class="legal-section__title">Contact</h3>
             <p class="legal-section__body">
-              [Placeholder] Clarify ownership of processes, know-how and any developed parameters.
-            </p>
-          </div>
-
-          <div class="legal-section">
-            <h3 class="legal-section__title">10. Governing law and jurisdiction</h3>
-            <p class="legal-section__body">
-              [Placeholder] State that Swiss law applies and name the place of jurisdiction, for example Biel/Bienne.
+              Swiss Plasma Polishing<br>
+              Quellgasse 21, 2502 Biel/Bienne, Switzerland<br>
+              E-mail: <a href="mailto:info@plasmapolishing.ch">info@plasmapolishing.ch</a>
             </p>
           </div>
 

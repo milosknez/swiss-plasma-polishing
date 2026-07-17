@@ -93,6 +93,39 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+/* Extra spacing when a section stacks several paragraphs. */
+.legal-section__body + .legal-section__body {
+  margin-top: 12px;
+}
+
+/* Small muted meta line (Last updated / Effective date), sits under the
+   hairline above the intro. */
+.legal-meta {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Bulleted list inside a section. The global reset removes list markers,
+   so disc is re-enabled here; markers use the accent colour. */
+.legal-list {
+  margin: 0;
+  padding-left: 20px;
+  list-style: disc;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+.legal-list li::marker {
+  color: var(--accent);
+}
+.legal-list a {
+  color: var(--accent);
+}
 
 /* Impressum info row: small uppercase label + primary value. Figma gap
    6px. The label was mono in an early design; IBM Plex Mono was removed

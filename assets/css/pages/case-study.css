@@ -110,6 +110,12 @@
   width: 100%;
   border-radius: var(--radius-2xl);
 }
+/* Real photo fills the 560px slot; the placeholder box keeps the same size.
+   border-radius clips the raster since the img carries the same class. */
+img.cs-hero-media__img {
+  display: block;
+  object-fit: cover;
+}
 
 /* ============================================================
    Overview (copy + specs sidebar)

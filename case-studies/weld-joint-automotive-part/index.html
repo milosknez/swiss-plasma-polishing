@@ -31,8 +31,9 @@
     CASE STUDY PAGE, template instance (weld joint on an automotive part).
     Styles in assets/css/pages/case-study.css plus shared components.css;
     all paths use ../../ prefixes (two folders below the root). Header and
-    footer are copies, edit nav on all pages sitewide. Copy here is
-    [Placeholder] awaiting the client; only the dental page has real text.
+    footer are copies, edit nav on all pages sitewide. Overview, Specifications and Story were replaced with an "In preparation"
+    notice until the client supplies the write-up; the dental page is the
+    filled reference.
     Prev/next links form a wrap-around chain in home-page order
     (dental > tube > weld > watch > electrolyte); this page sits between
     tube (prev) and watch (next).
@@ -95,119 +96,22 @@
       </div>
     </section>
 
-    <!-- ============================== Hero media ============================== -->
-    <section class="cs-hero-media" aria-label="Case hero image">
+    <!-- ============================== In preparation ============================== -->
+    <!-- The full write-up for this case is still being prepared (client copy pending,
+         2026-07). The Overview, Specifications and Story sections were replaced with this
+         notice so the site can go live. To restore them, copy those three sections from the
+         dental case page (../dental-cobalt-chrome-prosthesis/), the filled reference, and drop
+         in the real copy and images. -->
+    <section class="cs-inprep section" aria-labelledby="cs-inprep-title">
       <div class="container">
-        <div class="img-placeholder cs-hero-media__img">
-          <span class="img-placeholder__label">IMG/case hero image (replace)</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== Overview ============================== -->
-    <section class="cs-overview" aria-labelledby="cs-overview-title">
-      <div class="container">
-        <div class="cs-overview__row">
-          <div class="cs-overview__copy">
-            <p class="mono-label" style="color:var(--accent)">Overview</p>
-            <h2 class="cs-overview__title" id="cs-overview-title">
-              [Placeholder] What this part needed and what we delivered
-            </h2>
-            <p class="cs-overview__body">
-              [Placeholder] The client will supply the story of this case: the starting point, the requirement for the surface, and why plasma polishing was the right fit for this part.
-            </p>
-          </div>
-
-          <aside class="cs-specs" aria-label="Specifications">
-            <p class="mono-label" style="color:var(--accent)">Specifications</p>
-            <div class="cs-specs__list">
-              <div class="cs-spec">
-                <p class="cs-spec__label">Industry</p>
-                <p class="cs-spec__value">Automotive</p>
-              </div>
-              <div class="cs-spec">
-                <p class="cs-spec__label">Material</p>
-                <p class="cs-spec__value">[Placeholder]</p>
-              </div>
-              <div class="cs-spec">
-                <p class="cs-spec__label">Method</p>
-                <p class="cs-spec__value">Jet Plasma Polishing</p>
-              </div>
-              <div class="cs-spec">
-                <p class="cs-spec__label">Steps</p>
-                <p class="cs-spec__value">[Placeholder]</p>
-              </div>
-              <div class="cs-spec">
-                <p class="cs-spec__label">Surface</p>
-                <p class="cs-spec__value">[Placeholder]</p>
-              </div>
-              <div class="cs-spec">
-                <p class="cs-spec__label">Year</p>
-                <p class="cs-spec__value">[Placeholder]</p>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== Story ============================== -->
-    <section class="cs-story section" aria-label="How we polished this part">
-      <div class="container">
-        <div class="cs-story__inner">
-          <!-- 01 The challenge (text left, image right) -->
-          <article class="cs-story-block">
-            <div class="cs-story-block__text">
-              <div class="cs-story-block__top">
-                <span class="cs-story-block__kicker">The challenge</span>
-              </div>
-              <h2 class="cs-story-block__title">[Placeholder] The starting point</h2>
-              <p class="cs-story-block__body">
-                [Placeholder] Describe the problem the customer faced before plasma polishing: the previous process, its limits and the requirement for this part.
-              </p>
-            </div>
-            <div class="cs-story-block__media">
-              <div class="img-placeholder">
-                <span class="img-placeholder__label">IMG/challenge (replace)</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- 02 The process (image left, text right) -->
-          <article class="cs-story-block cs-story-block--reverse">
-            <div class="cs-story-block__text">
-              <div class="cs-story-block__top">
-                <span class="cs-story-block__kicker">The process</span>
-              </div>
-              <h2 class="cs-story-block__title">[Placeholder] The polishing step</h2>
-              <p class="cs-story-block__body">
-                [Placeholder] Describe how the part was processed: the method used, the setup and what happens to the surface during polishing.
-              </p>
-            </div>
-            <div class="cs-story-block__media">
-              <div class="img-placeholder">
-                <span class="img-placeholder__label">IMG/process (replace)</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- 03 The result (text left, image right) -->
-          <article class="cs-story-block">
-            <div class="cs-story-block__text">
-              <div class="cs-story-block__top">
-                <span class="cs-story-block__kicker">The result</span>
-              </div>
-              <h2 class="cs-story-block__title">[Placeholder] The finish</h2>
-              <p class="cs-story-block__body">
-                [Placeholder] Describe the resulting surface and what it means for the customer: roughness reached, geometry preserved and repeatability.
-              </p>
-            </div>
-            <div class="cs-story-block__media">
-              <div class="img-placeholder">
-                <span class="img-placeholder__label">IMG/result (replace)</span>
-              </div>
-            </div>
-          </article>
+        <div class="cs-inprep__inner">
+          <p class="mono-label" style="color:var(--accent)">In preparation</p>
+          <h2 class="cs-inprep__title" id="cs-inprep-title">This case study is in preparation</h2>
+          <p class="cs-inprep__body">
+            We are putting together the full details of this project. In the meantime, explore our
+            other case studies or get in touch and we will gladly tell you more.
+          </p>
+          <a class="btn btn--primary" href="../../index.html#contact">Get in touch</a>
         </div>
       </div>
     </section>
@@ -309,7 +213,6 @@
       <div class="site-footer__bottom">
         <p>© 2026 Swiss Plasma Polishing</p>
         <div class="site-footer__legal">
-          <a href="../../impressum/">Impressum</a>
           <a href="../../privacy/">Privacy Policy</a>
           <a href="../../terms/">Terms &amp; Conditions</a>
         </div>

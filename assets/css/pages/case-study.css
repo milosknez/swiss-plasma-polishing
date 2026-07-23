@@ -118,6 +118,39 @@ img.cs-hero-media__img {
 }
 
 /* ============================================================
+   "In preparation" notice
+   Shown on case pages whose full write-up is not ready yet, in place of the
+   Overview / Specifications / Story sections. Remove this block once every
+   case page has real content.
+   ============================================================ */
+.cs-inprep {
+  padding-block: var(--space-18); /* 80px */
+}
+.cs-inprep__inner {
+  max-width: 600px;
+  margin-inline: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5); /* 20px */
+}
+.cs-inprep__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+}
+.cs-inprep__body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* ============================================================
    Overview (copy + specs sidebar)
    ============================================================ */
 .cs-overview {
